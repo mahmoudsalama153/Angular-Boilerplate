@@ -1,0 +1,43 @@
+<div class="signature-pad-container">
+  <div class="flex justify-between items-center">
+    <app-base-label
+      [title]="'plans.submission.drawSignature' | translate"
+      [required]="true"
+    >
+    </app-base-label>
+    <p-button
+      (onClick)="clearSignature()"
+      [outlined]="true"
+      [label]="'plans.submission.clear' | translate"
+      severity="danger"
+      text
+      [disabled]="!canClearSignature()"
+    />
+  </div>
+
+  @if (existingSignature() && !showCanvas()) {
+  <div class="existing-signature-container">
+    <img
+      [src]="existingSignature()!"
+      alt="Signature"
+      class="existing-signature-image"
+    />
+  </div>
+  } @else {
+  <div class="signature-canvas-container">
+    <div class="canvas-wrapper">
+      <canvas
+        #canvas
+        class="signature-canvas"
+        (mousedown)="onMouseDown($event)"
+        (mousemove)="onMouseMove($event)"
+        (mouseup)="onMouseUp()"
+        (mouseleave)="onMouseUp()"
+        (touchstart)="onTouchStart($event)"
+        (touchmove)="onTouchMove($event)"
+        (touchend)="onTouchEnd()"
+      ></canvas>
+    </div>
+  </div>
+  }
+</div>

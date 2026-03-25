@@ -1,0 +1,72 @@
+<div
+  [dir]="'ltr'"
+  class="phone-input-container"
+  [class]="styleClass()"
+  [class.disabled]="disabled() || _isDisabled"
+>
+  <div class="unified-phone-input">
+    <!-- Country Code Selector (Left Side) -->
+    <div class="country-selector-wrapper">
+      <p-select
+        [options]="filteredCountries()"
+        [ngModel]="selectedCountry()"
+        (ngModelChange)="onCountryChange($event)"
+        (onHide)="onCountrySelectBlur()"
+        [optionLabel]="isArabic() ? 'nameAr' : 'name'"
+        [disabled]="disabled() || _isDisabled"
+        [filter]="true"
+        [filterPlaceholder]="'common.searchCountry' | translate"
+        [showClear]="false"
+        [appendTo]="'body'"
+        class="country-select"
+      >
+        <ng-template
+          pTemplate="selectedItem"
+          let-country
+        >
+          @if (country) {
+          <div class="country-display">
+            <img
+              [src]="country.flagUrl"
+              [alt]="isArabic() ? country.nameAr : country.name"
+              class="flag-icon"
+              onerror="this.style.display='none'"
+            />
+            <span class="dial-code text-sm font-medium ltr">{{ country.dialCode }}</span>
+          </div>
+          }
+        </ng-template>
+        <ng-template
+          pTemplate="item"
+          let-country
+        >
+          <div class="country-option flex items-center gap-2">
+            <img
+              [src]="country.flagUrl"
+              [alt]="isArabic() ? country.nameAr : country.name"
+              class="flag-icon"
+              onerror="this.style.display='none'"
+            />
+            <span class="country-name">{{ isArabic() ? country.nameAr : country.name }}</span>
+            <span class="dial-code ml-auto text-sm font-medium ltr">{{ country.dialCode }}</span>
+          </div>
+        </ng-template>
+      </p-select>
+    </div>
+
+    <!-- Phone Number Input (Right Side) -->
+    <div class="phone-input-wrapper">
+      <input
+        type="tel"
+        pInputText
+        [maxlength]="15"
+        [placeholder]="placeholder() | translate"
+        [ngModel]="phoneNumber()"
+        (ngModelChange)="onPhoneNumberChange($event)"
+        (blur)="onPhoneInputBlur()"
+        [disabled]="disabled() || _isDisabled"
+        class="phone-number-input ltr"
+      />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+import { ChangeDetectionStrategy, Component, input, model, output } from '@angular/core';
+import { BaseDialogComponent } from '../../base-components/base-dialog/base-dialog.component';
+import { TranslatePipe } from '../../../../core/pipes';
+
+@Component({
+  selector: 'app-general-confirmation-dialog',
+  imports: [BaseDialogComponent, TranslatePipe],
+  templateUrl: './general-confirmation-dialog.component.html',
+  styleUrl: './general-confirmation-dialog.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class GeneralConfirmationDialogComponent {
+  title = input<string>('common.confirmProceedUpdate');
+  confirmationLabel = input<string>('common.ok');
+  icon = input<string>('icon-x-close');
+  description = input<string>();
+  confirmButtonSeverity = input<'primary' | 'secondary' | 'success' | 'info' | 'danger' | 'help'>("primary");
+  visible = model(false);
+  confirmed = output();
+  onCancel = output();
+  closed = output();
+  isLoading = input(false)
+  classes = input('max-w-[25rem]')
+  cancelLabel = input<string>("common.cancel");
+
+  showCloseButton = input<boolean>(true);
+  showConfirmButton = input<boolean>(true);
+  closable = input<boolean>(true);
+  closeOnEscape = input<boolean>(true);
+  dismissableMask = input<boolean>(false);
+
+}

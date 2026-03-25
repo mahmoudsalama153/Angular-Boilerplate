@@ -1,0 +1,33 @@
+<app-base-dialog
+  [(visible)]="visible"
+  [showCloseButton]="false"
+  [showConfirmButton]="false"
+  [dialogTitle]="'plans.confirmation.confirmLeaveTitle' | translate"
+  (onClose)="handleClose()"
+  [icon]="''"
+  contentStyleClass="p-6"
+>
+  <div class="max-w-[500px]">
+    <p class="text-base font-semibold text-gray-900 mb-2">
+      {{ 'plans.confirmation.onLeaveTitle' | translate }}
+    </p>
+    <p class="text-sm text-gray-600">
+      {{ 'plans.confirmation.changesDiscarded' | translate }}
+    </p>
+  </div>
+
+  <ng-container ngProjectAs="footerButtons">
+    <p-button
+      [label]="'plans.confirmation.continueEditing' | translate"
+      severity="secondary"
+      (onClick)="handleContinueEditing()"
+      class="flex-initial"
+    />
+    <p-button
+      [label]="'plans.confirmation.leaveButton' | translate"
+      severity="danger"
+      (onClick)="handleLeave()"
+      class="flex-initial"
+    />
+  </ng-container>
+</app-base-dialog>

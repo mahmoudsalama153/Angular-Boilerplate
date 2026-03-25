@@ -1,0 +1,55 @@
+<div
+  class="flex flex-col justify-between h-full relative transition-all duration-300 ease-in-out"
+  [class.sidebar-collapsed]="displayCollapsed()"
+>
+  <span
+    class="absolute top-[60px] bg-white cursor-pointer rounded-full p-2 border border-gray-200 flex items-center justify-center h-[30px] w-[30px] transition-all duration-300 ease-in-out"
+    [ngClass]="togglePositionClass()"
+    (click)="toggleSidebarDrawerCollapsed()"
+  >
+    <i [class]="sidebarToggleIcon() + ' text-gray-400'"></i>
+  </span>
+  <div>
+    @if (displayCollapsed()) {
+    <a
+      routerLink="/"
+      class="flex justify-center p-2"
+    >
+      <img
+        src="favicon.ico"
+        alt="Logo"
+        class="w-8 h-8 object-contain"
+      />
+    </a>
+    } @else {
+    <!-- logo -->
+    }
+    <div
+      class="sidebar-links transition-[margin] duration-300 ease-in-out mt-[48px]"
+      [class.mt-4]="displayCollapsed()"
+    >
+      <ul class="list-unstyles">
+        @for(link of sidebarLinks(); track link.routerLink){
+        @if(link.show){
+        <li class="mb-[8px]">
+          @if(link.children && link.children.length > 0){
+          <app-sidebar-dropdown
+            [link]="link"
+            [collapsed]="displayCollapsed()"
+            (onCloseSidebarDrawer)="closeSidebarDrawer()"
+          ></app-sidebar-dropdown>
+          }
+          @else {
+          <app-sidebar-link
+            [link]="link"
+            [collapsed]="displayCollapsed()"
+            (click)="closeSidebarDrawer()"
+          ></app-sidebar-link>
+          }
+        </li>
+        }
+        }
+      </ul>
+    </div>
+  </div>
+</div>

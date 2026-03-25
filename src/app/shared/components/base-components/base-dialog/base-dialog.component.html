@@ -1,0 +1,68 @@
+<p-dialog
+  [visible]="visible()"
+  (visibleChange)="onVisibleChange($event)"
+  [modal]="true"
+  [resizable]="false"
+  [closable]="closable()"
+  [closeOnEscape]="closeOnEscape()"
+  [dismissableMask]="dismissableMask()"
+  #dialogRef
+  (onHide)="handleHide()"
+  (onShow)="onShow.emit()"
+  [appendTo]="appendTo()"
+  [contentStyleClass]="contentStyleClass()"
+  [styleClass]="styleClass() + ' lg:min-w-[25rem] max-w-[90%] min-w-[15rem]'"
+  [position]="position()"
+  [draggable]="false"
+>
+  @if(visible()){
+  <ng-template #header>
+    <span class="inline-flex items-center gap-2">
+      @if(icon()){
+      <div class="!min-w-[48px] !min-h-[48px] rounded-lg grid place-content-center border border-gray-300">
+        <i class="{{icon()}} text-gray-900 text-xl"></i>
+      </div>
+      }
+      <div [class.ms-2]="icon()">
+        <span class="font-semibold text-lg text-gray-900"> {{dialogTitle()}} </span>
+        <ng-content select="subTitle"></ng-content>
+      </div>
+    </span>
+  </ng-template>
+  <ng-content></ng-content>
+  <ng-template #footer>
+    <div class="w-full">
+      <p-divider styleClass=" !my-0" />
+      <div class="flex flex-wrap items-center p-[24px]">
+        <ng-content select="
+        footerMessage"></ng-content>
+        <div class="flex justify-end gap-4 flex-1">
+          <ng-content select="footerButtons"></ng-content>
+          @if(showCloseButton()){
+          <p-button
+            [label]="cancelLabel() | translate"
+            severity="secondary"
+            class="{{cancelButtonClass()}} flex-initial"
+            (onClick)="handleCancel();"
+            fluid
+            [disabled]="isLoading()"
+          />
+          }
+          @if(showConfirmButton()){
+          <p-button
+            [label]="confirmLabel() | translate"
+            [disabled]="isConfirmationDisabled()"
+            class="{{confirmButtonClass()}} flex-initial"
+            (onClick)="onConfirm.emit()"
+            fluid
+            [severity]="confirmButtonSeverity()"
+            [loading]="isLoading()"
+          />
+          }
+        </div>
+      </div>
+    </div>
+
+  </ng-template>
+  }
+</p-dialog>

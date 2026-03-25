@@ -1,0 +1,25 @@
+<app-base-dialog
+  [(visible)]="visible"
+  [icon]="icon()"
+  [confirmLabel]="confirmationLabel()"
+  [showCloseButton]="showCloseButton()"
+  [showConfirmButton]="showConfirmButton()"
+  [closable]="closable()"
+  [closeOnEscape]="closeOnEscape()"
+  [dismissableMask]="dismissableMask()"
+  (onConfirm)="confirmed.emit()"
+  [isLoading]="isLoading()"
+  (onClose)="closed.emit()"
+  [cancelLabel]="cancelLabel()"
+  (onCancel)="onCancel.emit()"
+  [confirmButtonSeverity]="confirmButtonSeverity()"
+>
+  <div [class]="classes()">
+    <p class="text-base font-semibold text-gray-900"> {{ title() | translate }} </p>
+    @if(description()){
+    <p class="mt-[8px]">
+      {{ description() }}
+    </p>
+    }
+  </div>
+</app-base-dialog>

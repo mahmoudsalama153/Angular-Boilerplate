@@ -1,0 +1,42 @@
+<div class="flex items-center justify-center px-[24px]">
+  <div class="md:block hidden">
+    <p-button
+      severity="secondary"
+      styleClass="col-span-1 !py-2 !w-full !text-sm"
+      [icon]="prevIcon()"
+      [iconPos]="prevIconPos()"
+      [raised]="true"
+      [label]="'common.previous' | translate"
+      [disabled]="prevIsDisabled()"
+      (onClick)="goToPage(filter().pageNumber - 1)"
+      fluid
+    />
+  </div>
+  <div class="flex-1">
+    <p-paginator
+      styleClass="!p-[14px]"
+      fluid
+      [rows]="filter().pageSize"
+      [totalRecords]="totalRecords()"
+      [first]="first()"
+      [pageLinkSize]="3"
+      (onPageChange)="pageChanged($event)"
+      [showCurrentPageReport]="true"
+      [currentPageReportTemplate]="paginatorTemplate()"
+      #paginator
+    />
+  </div>
+  <div class="md:block hidden">
+    <p-button
+      severity="secondary"
+      styleClass="col-span-1 !py-2 !w-full !text-sm"
+      [icon]="nextIcon()"
+      [raised]="true"
+      [label]="'common.next' | translate"
+      [iconPos]="nextIconPos()"
+      [disabled]="nextIsDisabled()"
+      (onClick)="goToPage(filter().pageNumber + 1)"
+      fluid
+    />
+  </div>
+</div>

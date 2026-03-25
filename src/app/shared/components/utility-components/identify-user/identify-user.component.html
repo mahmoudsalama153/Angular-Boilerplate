@@ -1,0 +1,25 @@
+<div class="identify-user-container flex items-center gap-3 w-full min-w-0">
+  <p-avatar
+    [image]="userAvatar() || 'assets/images/user_placeholder.svg'"
+    class="{{avatarClass()}}"
+    shape="circle"
+    size="large"
+  />
+  <span class="flex flex-col min-w-0">
+    <span class="
+    {{titleClass()}}
+    truncate">{{userName()}}</span>
+    @if(userTitle()){
+    <span class="{{subTitleClass()}} truncate max-w-[300px]">{{userTitle()}}</span>
+    }
+
+    @if(userDepartment()){
+    <span class="{{departmentClass()}} truncate max-w-[300px]">{{userDepartment()}}</span>
+    }
+
+    @if(userRoleText()){
+    <span class="{{roleClass()}} truncate max-w-[300px]">{{userRoleText()}}</span>
+    }
+  </span>
+
+</div>

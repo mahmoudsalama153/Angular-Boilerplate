@@ -1,0 +1,8 @@
+{
+"footer": {
+    "message": "© {{year}} SEC. All rights reserved.",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "cookie": "Cookie"
+  }
+}

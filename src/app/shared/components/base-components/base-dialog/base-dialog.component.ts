@@ -1,0 +1,58 @@
+import { ChangeDetectionStrategy, Component, input, model, output, viewChild } from "@angular/core";
+import { ButtonModule } from "primeng/button";
+import { type Dialog, DialogModule } from "primeng/dialog";
+import { DividerModule } from "primeng/divider";
+import { TranslatePipe } from "../../../../core/pipes";
+import { TDialogPosition, TPrimeSeverity } from "../../../interfaces";
+@Component({
+  selector: "app-base-dialog",
+  imports: [DialogModule, ButtonModule, DividerModule, TranslatePipe],
+  templateUrl: "./base-dialog.component.html",
+  styleUrl: "./base-dialog.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class BaseDialogComponent {
+  visible = model<boolean>(false);
+  onConfirm = output();
+  onCancel = output();
+  onShow = output();
+  onClose = output();
+  icon = input<string>("icon-eye");
+  dialogTitle = input<string>("");
+  confirmLabel = input<string>("common.submit");
+  cancelLabel = input<string>("common.cancel");
+  showCloseButton = input<boolean>(true);
+  showConfirmButton = input<boolean>(true);
+  closable = input<boolean>(true);
+  closeOnEscape = input<boolean>(true);
+  dismissableMask = input<boolean>(false);
+  isLoading = input<boolean>(false);
+  contentStyleClass = input<string>("");
+  styleClass = input<string>("");
+  position = input<TDialogPosition>('center');
+  dialogRef = viewChild.required<Dialog>("dialogRef");
+  isConfirmationDisabled = input(false);
+  confirmButtonClass = input("w-[50%]");
+  cancelButtonClass = input("w-[50%]");
+  appendTo = input("body");
+  confirmButtonSeverity = input<TPrimeSeverity>("primary");
+  closeCallback(e: Event): void {
+    this.dialogRef()?.close(e);
+  }
+
+  handleCancel(): void {
+    this.onCancel.emit();
+    this.visible.set(false);
+  }
+
+  handleHide(): void {
+    this.onClose.emit();
+    this.visible.set(false);
+  }
+
+  onVisibleChange(value: boolean): void {
+    if (!value) {
+      this.handleHide();
+    }
+  }
+}
