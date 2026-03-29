@@ -1,11 +1,11 @@
-import { Directive, ElementRef, HostListener, input } from '@angular/core';
+import { Directive, ElementRef, HostListener, input, inject } from '@angular/core';
 
 /**
  * Directive that automatically replaces broken image sources with a placeholder image.
- * 
+ *
  * Usage:
  * <img src="image.jpg" appImageError />
- * 
+ *
  * When the image fails to load, it will automatically be replaced with the default placeholder
  * or a custom placeholder if provided via the input.
  */
@@ -14,6 +14,8 @@ import { Directive, ElementRef, HostListener, input } from '@angular/core';
   standalone: true,
 })
 export class ImageErrorDirective {
+  private elementRef = inject<ElementRef<HTMLImageElement>>(ElementRef);
+
   /**
    * Optional custom placeholder image path.
    * If not provided, defaults to 'http://localhost:4200/assets/images/image-placeholder.png'
@@ -25,8 +27,6 @@ export class ImageErrorDirective {
   // Fallback to relative path if absolute URL fails
   private fallbackPlaceholder = 'assets/images/image-placeholder.png';
   private hasErrored = false;
-
-  constructor(private elementRef: ElementRef<HTMLImageElement>) { }
 
   @HostListener('error', ['$event'])
   onError(event: Event): void {
@@ -60,4 +60,3 @@ export class ImageErrorDirective {
     this.hasErrored = false;
   }
 }
-

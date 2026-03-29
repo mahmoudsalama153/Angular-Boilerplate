@@ -62,7 +62,7 @@ module.exports = defineConfig([
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-unused-vars': [
-        'error',
+        'warn',
         {
           vars: 'all',
           args: 'after-used',

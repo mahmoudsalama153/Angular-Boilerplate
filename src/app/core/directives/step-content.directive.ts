@@ -1,10 +1,12 @@
-import { Directive, Input, TemplateRef } from '@angular/core';
+import { Directive, Input, TemplateRef, inject } from '@angular/core';
 
 @Directive({
   selector: '[appStepContent]',
   standalone: true,
 })
 export class StepContentDirective {
+  templateRef = inject<TemplateRef<any>>(TemplateRef);
+
   private _stepNumber!: number;
 
   @Input() set appStepContent(value: number) {
@@ -14,9 +16,4 @@ export class StepContentDirective {
   get stepNumber(): number {
     return this._stepNumber;
   }
-
-  constructor(public templateRef: TemplateRef<any>) {
-    // TemplateRef is provided when used on ng-template
-  }
 }
-

@@ -6,176 +6,178 @@ import { TranslationKey } from '../../../core/i18n/translation-types';
 export type SupportedLanguage = 'en' | 'ar';
 
 @Injectable({
-	providedIn: 'root',
+  providedIn: 'root',
 })
 export class I18nService {
-	private static getInitialLanguage(): SupportedLanguage {
-		if (typeof window !== 'undefined' && window.localStorage) {
-			const saved = localStorage.getItem('preferred-language') as SupportedLanguage;
-			if (saved === 'en' || saved === 'ar') return saved;
-		}
-		return 'en';
-	}
+  private translateService = inject(TranslateService);
 
-	private readonly _currentLanguage = signal<SupportedLanguage>(I18nService.getInitialLanguage());
-	public readonly currentLanguage = this._currentLanguage.asReadonly();
+  private static getInitialLanguage(): SupportedLanguage {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const saved = localStorage.getItem('preferred-language') as SupportedLanguage;
+      if (saved === 'en' || saved === 'ar') return saved;
+    }
+    return 'en';
+  }
 
-	public readonly translations = signal<Record<string, any>>({});
+  private readonly _currentLanguage = signal<SupportedLanguage>(I18nService.getInitialLanguage());
+  public readonly currentLanguage = this._currentLanguage.asReadonly();
 
-	private readonly router = inject(Router)
+  public readonly translations = signal<Record<string, any>>({});
 
-	constructor(private translateService: TranslateService) {
-		// Set document direction immediately from initial language (before async load)
-		this.updateDocumentDirection(this._currentLanguage());
+  private readonly router = inject(Router);
 
-		// Load initial language (already correct from localStorage)
-		this.loadLanguage(this._currentLanguage());
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor() {
+    // Set document direction immediately from initial language (before async load)
+    this.updateDocumentDirection(this._currentLanguage());
 
-		// Load language when it changes
-		effect(() => {
-			const lang = this._currentLanguage();
-			this.loadLanguage(lang);
-		});
-	}
+    // Load initial language (already correct from localStorage)
+    void this.loadLanguage(this._currentLanguage());
 
-	/**
-	 * Set the current language
-	 */
-	setLanguage(lang: SupportedLanguage, refreshPage = true): void {
-		this._currentLanguage.set(lang);
-		// Store preference in localStorage
-		if (typeof window !== 'undefined' && window.localStorage) {
-			localStorage.setItem('preferred-language', lang);
-		}
-		// Update document direction for RTL/LTR
-		this.updateDocumentDirection(lang);
+    // Load language when it changes
+    effect(() => {
+      const lang = this._currentLanguage();
+      void this.loadLanguage(lang);
+    });
+  }
 
-		if (refreshPage) {
-			this.refreshCurrentPage();
-		}
-	}
+  /**
+   * Set the current language
+   */
+  setLanguage(lang: SupportedLanguage, refreshPage = true): void {
+    this._currentLanguage.set(lang);
+    // Store preference in localStorage
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem('preferred-language', lang);
+    }
+    // Update document direction for RTL/LTR
+    this.updateDocumentDirection(lang);
 
-	private refreshCurrentPage(): void {
-		this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-		this.router.navigated = false;
-		void this.router.navigateByUrl(this.router.url);
-	}
+    if (refreshPage) {
+      this.refreshCurrentPage();
+    }
+  }
 
-	/**
-	 * Get translation by key
-	 */
-	translate(key: TranslationKey, params?: Record<string, any>): string {
-		const translation = this.getNestedTranslation(key);
-		if (!translation) {
-			return key;
-		}
+  private refreshCurrentPage(): void {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.navigated = false;
+    void this.router.navigateByUrl(this.router.url);
+  }
 
-		if (params) {
-			return this.interpolate(translation, params);
-		}
+  /**
+   * Get translation by key
+   */
+  translate(key: TranslationKey, params?: Record<string, any>): string {
+    const translation = this.getNestedTranslation(key);
+    if (!translation) {
+      return key;
+    }
 
-		return translation;
-	}
+    if (params) {
+      return this.interpolate(translation, params);
+    }
 
-	/**
-	 * Get translation by key (alias for translate)
-	 */
-	t(key: string, params?: Record<string, any>): string {
-		return this.translate(key, params);
-	}
+    return translation;
+  }
 
-	/**
-	 * Load language translations
-	 */
-	private async loadLanguage(lang: SupportedLanguage): Promise<void> {
-		try {
-			const translations = await this.translateService.loadTranslations(lang);
-			// Only apply if this is still the current language (avoids race when switching)
-			if (this._currentLanguage() === lang) {
-				this.translations.set(translations);
-			}
-		} catch (error) {
-			console.error(`Failed to load translations for language: ${lang}`, error);
-		}
-	}
+  /**
+   * Get translation by key (alias for translate)
+   */
+  t(key: string, params?: Record<string, any>): string {
+    return this.translate(key, params);
+  }
 
-	/**
-	 * Get nested translation value using dot notation
-	 */
-	private getNestedTranslation(key: string): string | null {
-		const keys = key.split('.');
-		let value: any = this.translations();
+  /**
+   * Load language translations
+   */
+  private async loadLanguage(lang: SupportedLanguage): Promise<void> {
+    try {
+      const translations = await this.translateService.loadTranslations(lang);
+      // Only apply if this is still the current language (avoids race when switching)
+      if (this._currentLanguage() === lang) {
+        this.translations.set(translations);
+      }
+    } catch (error) {
+      console.error(`Failed to load translations for language: ${lang}`, error);
+    }
+  }
 
-		for (const k of keys) {
-			if (value && typeof value === 'object' && k in value) {
-				value = value[k];
-			} else {
-				return null;
-			}
-		}
+  /**
+   * Get nested translation value using dot notation
+   */
+  private getNestedTranslation(key: string): string | null {
+    const keys = key.split('.');
+    let value: any = this.translations();
 
-		return typeof value === 'string' ? value : null;
-	}
+    for (const k of keys) {
+      if (value && typeof value === 'object' && k in value) {
+        value = value[k];
+      } else {
+        return null;
+      }
+    }
 
-	/**
-	 * Interpolate parameters in translation string
-	 */
-	private interpolate(text: string, params: Record<string, any>): string {
-		return text.replace(/\{\{\s*(\w+)\s*\}\}/g, (match, key) => {
-			return params[key] !== undefined ? String(params[key]) : match;
-		});
-	}
+    return typeof value === 'string' ? value : null;
+  }
 
-	/**
-	 * Initialize language from localStorage or browser preference
-	 */
-	initialize(): void {
-		if (typeof window !== 'undefined' && window.localStorage) {
-			const saved = localStorage.getItem('preferred-language') as SupportedLanguage;
-			if (saved && (saved === 'en' || saved === 'ar')) {
-				this.setLanguage(saved, false);
-				return;
-			}
-		}
+  /**
+   * Interpolate parameters in translation string
+   */
+  private interpolate(text: string, params: Record<string, any>): string {
+    return text.replace(/\{\{\s*(\w+)\s*\}\}/g, (match, key) => {
+      return params[key] !== undefined ? String(params[key]) : match;
+    });
+  }
 
-		// TODO: Uncomment this when finishing all localization work
-		// Try to detect from browser
-		// if (typeof window !== 'undefined' && window.navigator) {
-		// 	const browserLang = navigator.language.split('-')[0];
-		// 	if (browserLang === 'ar') {
-		// 		this.setLanguage('ar');
-		// 		return;
-		// 	}
-		// }
+  /**
+   * Initialize language from localStorage or browser preference
+   */
+  initialize(): void {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const saved = localStorage.getItem('preferred-language') as SupportedLanguage;
+      if (saved && (saved === 'en' || saved === 'ar')) {
+        this.setLanguage(saved, false);
+        return;
+      }
+    }
 
-		// Default to English
-		this.setLanguage('en', false);
-	}
+    // TODO: Uncomment this when finishing all localization work
+    // Try to detect from browser
+    // if (typeof window !== 'undefined' && window.navigator) {
+    // 	const browserLang = navigator.language.split('-')[0];
+    // 	if (browserLang === 'ar') {
+    // 		this.setLanguage('ar');
+    // 		return;
+    // 	}
+    // }
 
-	/**
-	 * Update document direction based on language
-	 */
-	private updateDocumentDirection(lang: SupportedLanguage): void {
-		if (typeof document === 'undefined') {
-			return;
-		}
+    // Default to English
+    this.setLanguage('en', false);
+  }
 
-		const htmlElement = document.documentElement;
-		const bodyElement = document.body;
+  /**
+   * Update document direction based on language
+   */
+  private updateDocumentDirection(lang: SupportedLanguage): void {
+    if (typeof document === 'undefined') {
+      return;
+    }
 
-		if (lang === 'ar') {
-			// Set RTL for Arabic
-			htmlElement.setAttribute('dir', 'rtl');
-			htmlElement.setAttribute('lang', 'ar');
-			bodyElement.classList.add('rtl');
-			bodyElement.classList.remove('ltr');
-		} else {
-			// Set LTR for English and other languages
-			htmlElement.setAttribute('dir', 'ltr');
-			htmlElement.setAttribute('lang', 'en');
-			bodyElement.classList.add('ltr');
-			bodyElement.classList.remove('rtl');
-		}
-	}
+    const htmlElement = document.documentElement;
+    const bodyElement = document.body;
+
+    if (lang === 'ar') {
+      // Set RTL for Arabic
+      htmlElement.setAttribute('dir', 'rtl');
+      htmlElement.setAttribute('lang', 'ar');
+      bodyElement.classList.add('rtl');
+      bodyElement.classList.remove('ltr');
+    } else {
+      // Set LTR for English and other languages
+      htmlElement.setAttribute('dir', 'ltr');
+      htmlElement.setAttribute('lang', 'en');
+      bodyElement.classList.add('ltr');
+      bodyElement.classList.remove('rtl');
+    }
+  }
 }
-

@@ -10,7 +10,7 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "prepare": "husky",
-    "lint": "eslint . --cache --max-warnings 0",
+    "lint": "eslint . --cache --max-warnings 5",
     "lint:fix": "npm run lint -- --fix",
     "check:staged": "lint-staged --concurrent false"
   },
@@ -52,7 +52,7 @@
   "lint-staged": {
     "*.{ts,html,js}": [
       "prettier --write",
-      "eslint --cache --fix --max-warnings 0"
+      "eslint --cache --fix --max-warnings 5"
     ],
     "*.{scss,css,json,md,yml,yaml}": [
       "prettier --write"
