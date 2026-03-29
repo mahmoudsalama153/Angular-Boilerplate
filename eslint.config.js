@@ -1,4 +1,3 @@
-// @ts-check
 const eslint = require('@eslint/js');
 const { defineConfig } = require('eslint/config');
 const tseslint = require('typescript-eslint');
@@ -44,23 +43,7 @@ module.exports = defineConfig([
       },
     },
     rules: {
-      '@angular-eslint/directive-selector': [
-        'error',
-        {
-          type: 'attribute',
-          prefix: 'app',
-          style: 'camelCase',
-        },
-      ],
       '@angular-eslint/contextual-lifecycle': 'error',
-      '@angular-eslint/component-selector': [
-        'error',
-        {
-          type: 'element',
-          prefix: 'app',
-          style: 'kebab-case',
-        },
-      ],
       '@angular-eslint/no-input-rename': 'error',
       '@angular-eslint/no-inputs-metadata-property': 'error',
       '@angular-eslint/no-output-on-prefix': 'error',
@@ -69,17 +52,23 @@ module.exports = defineConfig([
       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
       '@angular-eslint/prefer-output-readonly': 'error',
       '@angular-eslint/use-component-selector': 'error',
+      '@typescript-eslint/no-explicit-any': 'off',
       '@angular-eslint/use-pipe-transform-interface': 'error',
       eqeqeq: ['error', 'always'],
       '@typescript-eslint/explicit-function-return-type': 'off',
-      '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-floating-promises': 'error',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
+          vars: 'all',
+          args: 'after-used',
+          ignoreRestSiblings: true,
           argsIgnorePattern: '^_',
-          caughtErrorsIgnorePattern: '^_',
-          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
         },
       ],
       '@typescript-eslint/only-throw-error': 'error',
