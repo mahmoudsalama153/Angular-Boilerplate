@@ -1,0 +1,116 @@
+<div class="flex flex-col gap-3">
+  <h1 class="text-3xl font-semibold text-gray-900">{{ 'auth.signUp' | translate }}</h1>
+  <p class="text-gray-600">{{ 'auth.welcomeMessage' | translate }}</p>
+</div>
+<form
+  autocomplete="off"
+  [formGroup]="registerForm"
+  id="registerForm"
+  (ngSubmit)="onSubmit()"
+  class="w-full my-5"
+>
+  <div class="flex flex-col gap-3">
+    <!-- Name -->
+    <div class="field">
+      <app-base-label [title]="'auth.name' | translate"></app-base-label>
+      <input
+        type="text"
+        pInputText
+        [formControl]="registerFormService.fullName"
+        [placeholder]="'auth.enterYourName' | translate"
+        fluid
+      />
+      @if (registerFormService.fullName.touched && registerFormService.fullName.invalid) {
+        <app-base-error
+          [message]="
+            registerFormService.fullName.hasError('required')
+              ? ('auth.nameRequired' | translate)
+              : ('auth.invalidFullName' | translate)
+          "
+        />
+      }
+    </div>
+
+    <!-- Email -->
+    <div class="field">
+      <app-base-label [title]="'auth.email' | translate"></app-base-label>
+      <input
+        type="email"
+        pInputText
+        class="ltr"
+        [formControl]="registerFormService.email"
+        [placeholder]="'auth.enterYourEmail' | translate"
+        fluid
+      />
+      @if (registerFormService.email.touched && registerFormService.email.invalid) {
+        <app-base-error
+          [message]="
+            registerFormService.email.hasError('required')
+              ? ('auth.emailRequired' | translate)
+              : ('auth.register.invalidEmailFormat' | translate)
+          "
+        />
+      }
+    </div>
+
+    <!-- Phone -->
+    <div class="field">
+      <app-base-label [title]="'auth.phone' | translate"></app-base-label>
+      <app-phone-input class="ltr" [formControl]="registerFormService.phone"></app-phone-input>
+      @if (registerFormService.phone.touched && registerFormService.phone.invalid) {
+        <app-base-error
+          [message]="
+            registerFormService.phone.hasError('required')
+              ? ('auth.phoneRequired' | translate)
+              : ('auth.invalidPhoneNumber' | translate)
+          "
+        />
+      }
+    </div>
+
+    <!-- Password -->
+    <div class="field">
+      <app-password-policy
+        [passwordFormControl]="registerFormService.password"
+      ></app-password-policy>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="field">
+      <app-base-label [title]="'auth.register.confirmPassword' | translate"></app-base-label>
+      <app-password-toggle
+        [control]="registerFormService.confirmPassword"
+        [placeholder]="'auth.register.enterYourConfirmPassword' | translate"
+      ></app-password-toggle>
+      @if (
+        registerFormService.confirmPassword.touched && registerFormService.confirmPassword.invalid
+      ) {
+        <app-base-error
+          [message]="
+            registerFormService.confirmPassword.hasError('required')
+              ? ('auth.register.confirmPasswordRequired' | translate)
+              : ('auth.register.passwordMismatch' | translate)
+          "
+        />
+      }
+    </div>
+
+    <!-- Submit -->
+    <p-button
+      [label]="'auth.getStarted' | translate"
+      fluid
+      [disabled]="registerForm.invalid || authStore.loading()"
+      type="submit"
+    ></p-button>
+  </div>
+</form>
+<div class="flex justify-center items-center">
+  <p class="text-gray-600">{{ 'auth.alreadyHaveAccount' | translate }}</p>
+  <!-- TODO: set link -->
+  <p-button
+    class="ms-2"
+    variant="text"
+    [label]="'auth.signIn' | translate"
+    [routerLink]="['/auth/login']"
+  />
+</div>

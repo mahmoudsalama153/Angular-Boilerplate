@@ -1,0 +1,97 @@
+<div class="flex flex-col gap-3">
+  <h1 class="text-3xl font-semibold text-gray-900">{{ 'auth.login.title' | translate }}</h1>
+  <!-- TODO: set color -->
+  <p class="text-gray-600">{{ 'auth.login.description' | translate }}</p>
+</div>
+
+<div class="mt-5 mb-5">
+  <form
+    autocomplete="off"
+    id="login"
+    [formGroup]="loginForm"
+    (ngSubmit)="publicLogin()"
+    class="w-full"
+  >
+    <div class="flex flex-col gap-3">
+      <!-- Email -->
+      <div class="field">
+        <app-base-label [title]="'auth.login.email' | translate"></app-base-label>
+        <input
+          autocomplete="new-field"
+          type="email"
+          pInputText
+          class="ltr"
+          [formControl]="loginFormService.email"
+          [placeholder]="'auth.login.enterYourEmail' | translate"
+          fluid
+        />
+        @if (loginFormService.email.touched && loginFormService.email.invalid) {
+          <app-base-error
+            [message]="
+              loginFormService.email.hasError('required')
+                ? ('auth.login.emailRequired' | translate)
+                : ('auth.login.invalidEmailFormat' | translate)
+            "
+          />
+        }
+      </div>
+
+      <!-- Password -->
+      <div class="field">
+        <app-base-label [title]="'auth.login.password' | translate"></app-base-label>
+        <app-password-toggle
+          [control]="loginFormService.password"
+          [placeholder]="'auth.login.enterYourPassword' | translate"
+        ></app-password-toggle>
+        @if (loginFormService.password.touched && loginFormService.password.invalid) {
+          <app-base-error
+            [message]="
+              loginFormService.password.hasError('required')
+                ? ('auth.login.passwordRequired' | translate)
+                : ('auth.login.invalidPasswordFormat' | translate)
+            "
+          />
+        }
+      </div>
+
+      <div class="flex items-center">
+        <p-button
+          variant="text"
+          [label]="'auth.login.forgotPassword' | translate"
+          routerLink="/auth/forgot-password"
+        />
+      </div>
+
+      <!-- Submit -->
+      <p-button
+        [label]="'auth.login.signIn' | translate"
+        fluid
+        [disabled]="loginForm.invalid || authStore.loading()"
+        type="submit"
+      ></p-button>
+    </div>
+
+    <div class="flex justify-center items-center mt-2">
+      <p class="text-gray-600">{{ 'auth.login.dontHaveAccount' | translate }}</p>
+      <!-- TODO: set link -->
+      <p-button
+        class="ms-2"
+        variant="text"
+        [label]="'auth.login.signUp' | translate"
+        [routerLink]="['/auth/register']"
+      />
+    </div>
+
+    @if (showResendVerification()) {
+      <div class="flex justify-center items-center mt-2">
+        <p class="text-gray-600">{{ 'auth.verification.didntReceiveEmail' | translate }}</p>
+        <p-button
+          variant="text"
+          class="ms-2"
+          [label]="'auth.login.resendVerificationLink' | translate"
+          (onClick)="onGoToVerification()"
+        />
+      </div>
+    }
+  </form>
+</div>
