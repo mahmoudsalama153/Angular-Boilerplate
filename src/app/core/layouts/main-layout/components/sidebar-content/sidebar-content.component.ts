@@ -45,8 +45,8 @@ export class SidebarContentComponent {
   sidebarToggleIcon = computed(() => {
     const collapsed = this.displayCollapsed();
     const rtl = this.i18nService.currentLanguage() === 'ar';
-    if (collapsed) return rtl ? 'icon-arrow-left' : 'icon-arrow-right';
-    return rtl ? 'icon-arrow-right' : 'icon-arrow-left';
+    if (collapsed) return rtl ? 'pi pi-arrow-left' : 'pi pi-arrow-right';
+    return rtl ? 'pi pi-arrow-right' : 'pi pi-arrow-left';
   });
 
   /** Toggle button position: RTL uses left, LTR uses right */
@@ -59,7 +59,14 @@ export class SidebarContentComponent {
     // Access currentLanguage to make computed reactive to language changes
     this.i18nService.currentLanguage();
 
-    return [];
+    return [
+      {
+        label: 'Dashboard',
+        icon: 'pi pi-home',
+        routerLink: '/dashboard',
+        show: true,
+      },
+    ];
   });
 
   helpLink = computed<ISideBarLink>(() => {

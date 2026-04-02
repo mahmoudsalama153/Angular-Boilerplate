@@ -1,0 +1,13 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '../../../../core/pipes';
+@Component({
+  selector: 'app-layout-footer',
+  imports: [RouterLink, TranslatePipe],
+  templateUrl: './layout-footer.component.html',
+  styleUrl: './layout-footer.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class LayoutFooterComponent {
+
+}
