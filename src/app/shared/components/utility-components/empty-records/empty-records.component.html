@@ -1,10 +1,14 @@
 <div class="flex flex-col items-center">
-  <span class="bg-primary-50 w-[48px] h-[48px] rounded-full grid place-content-center mb-[20px] {{iconClass()}}">
-    <i class="{{icon()}} text-primary"></i>
+  <span
+    class="mb-[20px] grid h-[48px] w-[48px] place-content-center rounded-full bg-accent text-accent-foreground {{
+      iconClass()
+    }}"
+  >
+    <i class="{{ icon() }} text-primary"></i>
   </span>
-  <p class="font-bold text-lg text-gray-900 mb-[8px] {{titleClass()}}"> {{messageTitle()}} </p>
-  <p class="text-sm text-gray-600 mb-[32px] text-center {{subTitleClass()}}">
-    {{subtitle()}}
+  <p class="mb-[8px] text-lg font-bold text-foreground {{ titleClass() }}">{{ messageTitle() }}</p>
+  <p class="mb-[32px] text-center text-sm text-muted {{ subTitleClass() }}">
+    {{ subtitle() }}
   </p>
   <ng-content></ng-content>
 </div>

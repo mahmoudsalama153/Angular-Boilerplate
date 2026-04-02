@@ -4,39 +4,39 @@ import { TruncateTooltipDirective } from '../../../../core/directives/truncate-t
 import { TColors } from '../../../interfaces';
 
 @Component({
-	selector: 'app-base-tag',
-	imports: [TagModule, TruncateTooltipDirective],
-	templateUrl: './base-tag.component.html',
-	styleUrl: './base-tag.component.scss',
-	changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-base-tag',
+  imports: [TagModule, TruncateTooltipDirective],
+  templateUrl: './base-tag.component.html',
+  styleUrl: './base-tag.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BaseTagComponent {
-	color = input<TColors>('red');
-	value = input<string>('');
-	styleClass = input<string>('');
-	maxChars = input<number>(30);
-	disableTruncateTooltip = input<boolean>(false);
+  color = input<TColors>('red');
+  value = input<string>('');
+  styleClass = input<string>('');
+  maxChars = input<number>(30);
+  disableTruncateTooltip = input<boolean>(false);
 
-	getBadgeClasses(): string {
-		const colorMap: Record<TColors, string> = {
-			primary: 'border-primary-200 bg-primary-50 text-primary-700',
-			blue: 'border-blue-200 bg-blue-50 text-blue-700',
-			fadedBlue: 'border-slate-300 bg-slate-50 text-[#4767A5]',
-			red: 'border-[#DD9A95] bg-[#F7E9E8] text-[#901C13]',
-			green: 'border-green-200 bg-green-50 text-green-700',
-			yellow: 'border-yellow-200 bg-yellow-50 text-yellow-700',
-			indigo: 'border-indigo-200 bg-indigo-50 text-indigo-700',
-			purple: 'border-purple-200 bg-purple-50 text-purple-700',
-			pink: 'border-pink-200 bg-pink-50 text-pink-700',
-			gray: 'border-gray-200 bg-gray-50 text-gray-700',
-			orange: 'border-[#FFE68F] bg-[#FFFAE7] text-[#AD8908]',
-			fadeGreen: 'border-[#8CC0AA] bg-[#E6F1ED] text-[#055A36]',
-			cloudBlue: 'border-[#B8DCF5] bg-[#F2F9FD] text-[#006EB8]',
-		};
-		return colorMap[this.color()];
-	}
+  getBadgeClasses(): string {
+    const colorMap: Record<TColors, string> = {
+      primary: 'border-primary-muted bg-primary-soft text-primary-strong',
+      blue: 'border-info-muted bg-info-soft text-info-strong',
+      fadedBlue: 'border-primary-muted bg-primary-soft text-primary-strong',
+      red: 'border-danger-muted bg-danger-soft text-danger-strong',
+      green: 'border-success-muted bg-success-soft text-success-strong',
+      yellow: 'border-warning-muted bg-warning-soft text-warning-strong',
+      indigo: 'border-violet-muted bg-violet-soft text-violet-strong',
+      purple: 'border-violet-muted bg-violet-soft text-violet-strong',
+      pink: 'border-rose-muted bg-rose-soft text-rose-strong',
+      gray: 'border-border bg-surface-subtle text-foreground',
+      orange: 'border-warning-muted bg-warning-soft text-warning-strong',
+      fadeGreen: 'border-success-muted bg-success-soft text-success-strong',
+      cloudBlue: 'border-info-muted bg-info-soft text-info-strong',
+    };
+    return colorMap[this.color()];
+  }
 
-	getEffectiveClasses(): string {
-		return this.styleClass() + ' ' + this.getBadgeClasses();
-	}
+  getEffectiveClasses(): string {
+    return this.styleClass() + ' ' + this.getBadgeClasses();
+  }
 }

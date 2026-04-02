@@ -46,11 +46,11 @@ module.exports = defineConfig([
       '@angular-eslint/contextual-lifecycle': 'error',
       '@angular-eslint/no-input-rename': 'error',
       '@angular-eslint/no-inputs-metadata-property': 'error',
-      '@angular-eslint/no-output-on-prefix': 'error',
       '@angular-eslint/no-outputs-metadata-property': 'error',
       '@angular-eslint/prefer-inject': 'error',
       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
       '@angular-eslint/prefer-output-readonly': 'error',
+      '@angular-eslint/template/click-events-have-key-events': 'off',
       '@angular-eslint/use-component-selector': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
       '@angular-eslint/use-pipe-transform-interface': 'error',
@@ -63,7 +63,9 @@ module.exports = defineConfig([
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-unsafe-argument': 'off',
+      '@angular-eslint/template/interactive-supports-focus': 'off',
       '@typescript-eslint/unbound-method': 'off',
+      '@angular-eslint/no-output-on-prefix': 'off',
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {

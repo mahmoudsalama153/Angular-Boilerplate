@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core
 import { ControlContainer, FormGroupDirective, FormControl } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgClass } from '@angular/common';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { TranslatePipe } from '../../../../core/pipes';
@@ -15,7 +14,6 @@ import { PasswordToggleComponent } from '../../../../shared/components/form/pass
   imports: [
     PasswordModule,
     ReactiveFormsModule,
-    NgClass,
     BaseLabelComponent,
     BaseErrorComponent,
     TranslatePipe,

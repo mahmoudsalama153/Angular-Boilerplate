@@ -7,17 +7,17 @@ import { PRIMENG_LOCALE_AR, PRIMENG_LOCALE_EN } from './primeng-locale';
 const APP_THEME_PRESET = definePreset(Lara, {
   semantic: {
     primary: {
-      50: '{indigo.50}',
-      100: '{indigo.100}',
-      200: '{indigo.200}',
-      300: '{indigo.300}',
-      400: '{indigo.400}',
-      500: '{indigo.500}',
-      600: '{indigo.600}',
-      700: '{indigo.700}',
-      800: '{indigo.800}',
-      900: '{indigo.900}',
-      950: '{indigo.950}',
+      50: '#F4F7FA',
+      100: '#E8ECF4',
+      200: '#C0CBE0',
+      300: '#97AACC',
+      400: '#6F89B9',
+      500: '#4767A5',
+      600: '#1E4691',
+      700: '#1B3F82',
+      800: '#183874',
+      900: '#153166',
+      950: '#122A57',
     },
   },
 });

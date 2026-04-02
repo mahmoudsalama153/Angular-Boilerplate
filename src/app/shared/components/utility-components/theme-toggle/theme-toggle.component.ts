@@ -18,7 +18,7 @@ interface ThemeOption {
         @for (option of themeOptions; track option.value) {
           <button
             type="button"
-            class="flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary"
+            class="flex items-center gap-2 rounded-xl px-3 cursor-pointer py-2 text-sm font-medium transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary"
             [class.bg-primary]="isSelected(option.value)"
             [class.text-primary-foreground]="isSelected(option.value)"
             [class.text-muted]="!isSelected(option.value)"

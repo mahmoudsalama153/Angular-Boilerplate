@@ -20,6 +20,9 @@
   --color-border-strong: var(--app-color-border-strong);
   --color-muted: var(--app-color-muted);
   --color-primary: var(--app-color-primary);
+  --color-primary-soft: var(--app-color-primary-soft);
+  --color-primary-muted: var(--app-color-primary-muted);
+  --color-primary-strong: var(--app-color-primary-strong);
   --color-primary-foreground: var(--app-color-primary-foreground);
   --color-secondary: var(--app-color-secondary);
   --color-secondary-foreground: var(--app-color-secondary-foreground);
@@ -27,13 +30,34 @@
   --color-accent-foreground: var(--app-color-accent-foreground);
   --color-success: var(--app-color-success);
   --color-success-soft: var(--app-color-success-soft);
+  --color-success-muted: var(--app-color-success-muted);
+  --color-success-strong: var(--app-color-success-strong);
   --color-success-foreground: var(--app-color-success-foreground);
   --color-warning: var(--app-color-warning);
   --color-warning-soft: var(--app-color-warning-soft);
+  --color-warning-muted: var(--app-color-warning-muted);
+  --color-warning-strong: var(--app-color-warning-strong);
   --color-warning-foreground: var(--app-color-warning-foreground);
   --color-danger: var(--app-color-danger);
   --color-danger-soft: var(--app-color-danger-soft);
+  --color-danger-muted: var(--app-color-danger-muted);
+  --color-danger-strong: var(--app-color-danger-strong);
   --color-danger-foreground: var(--app-color-danger-foreground);
+  --color-info: var(--app-color-info);
+  --color-info-soft: var(--app-color-info-soft);
+  --color-info-muted: var(--app-color-info-muted);
+  --color-info-strong: var(--app-color-info-strong);
+  --color-violet: var(--app-color-violet);
+  --color-violet-soft: var(--app-color-violet-soft);
+  --color-violet-muted: var(--app-color-violet-muted);
+  --color-violet-strong: var(--app-color-violet-strong);
+  --color-rose: var(--app-color-rose);
+  --color-rose-soft: var(--app-color-rose-soft);
+  --color-rose-muted: var(--app-color-rose-muted);
+  --color-rose-strong: var(--app-color-rose-strong);
+  --color-neutral-soft: var(--app-color-neutral-soft);
+  --color-neutral-muted: var(--app-color-neutral-muted);
+  --color-neutral-strong: var(--app-color-neutral-strong);
 }
 
 :root {
