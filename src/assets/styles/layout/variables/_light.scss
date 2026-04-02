@@ -1,5 +1,6 @@
-:root {
-    --surface-ground: var(--p-surface-100);
-    --code-background: var(--p-surface-900);
-    --code-color: var(--p-surface-200);
+:root,
+[data-theme='light'] {
+  --surface-ground: var(--app-color-background);
+  --code-background: var(--app-surface-900);
+  --code-color: var(--app-surface-100);
 }

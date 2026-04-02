@@ -1,9 +1,9 @@
-@if(message()) {
-<small
-  class="flex text-red-400 animated {{styleClass()}}"
-  animate.enter="fadeIn"
-  animate.leave="fadeOut"
->
-  {{message()}}
-</small>
+@if (message()) {
+  <small
+    class="animated flex text-danger {{ styleClass() }}"
+    animate.enter="fadeIn"
+    animate.leave="fadeOut"
+  >
+    {{ message() }}
+  </small>
 }

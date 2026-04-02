@@ -1,0 +1,133 @@
+:root {
+  --app-font-sans: 'Inter', sans-serif;
+  --app-radius-sm: 0.5rem;
+  --app-radius-md: 0.75rem;
+  --app-radius-lg: 1rem;
+  --app-radius-xl: 1.5rem;
+  --app-shadow-xs: 0 1px 2px 0 rgb(15 23 42 / 0.05);
+  --app-shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.05), 0 1px 3px 0 rgb(15 23 42 / 0.08);
+  --app-shadow-md: 0 10px 15px -3px rgb(15 23 42 / 0.1), 0 4px 6px -4px rgb(15 23 42 / 0.1);
+  --app-shadow-lg: 0 20px 25px -5px rgb(15 23 42 / 0.12), 0 8px 10px -6px rgb(15 23 42 / 0.12);
+  --app-transition-theme: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --app-primary-50: #eef4ff;
+  --app-primary-100: #d9e6ff;
+  --app-primary-200: #bfd2ff;
+  --app-primary-300: #94b3ff;
+  --app-primary-400: #6c90ff;
+  --app-primary-500: #4d71f5;
+  --app-primary-600: #3858d8;
+  --app-primary-700: #2f47b8;
+  --app-primary-800: #263992;
+  --app-primary-900: #1f3073;
+  --app-primary-950: #162456;
+
+  --app-surface-0: #ffffff;
+  --app-surface-50: #f8fafc;
+  --app-surface-100: #f1f5f9;
+  --app-surface-200: #e2e8f0;
+  --app-surface-300: #cbd5e1;
+  --app-surface-400: #94a3b8;
+  --app-surface-500: #64748b;
+  --app-surface-600: #475569;
+  --app-surface-700: #334155;
+  --app-surface-800: #1e293b;
+  --app-surface-900: #0f172a;
+  --app-surface-950: #020617;
+
+  --app-color-background: var(--app-surface-50);
+  --app-color-foreground: #0f172a;
+  --app-color-surface: var(--app-surface-0);
+  --app-color-surface-elevated: var(--app-surface-0);
+  --app-color-surface-subtle: var(--app-surface-100);
+  --app-color-surface-hover: #e9eff7;
+  --app-color-border: #d7e0eb;
+  --app-color-border-strong: #bfccdb;
+  --app-color-muted: #64748b;
+  --app-color-primary: var(--app-primary-600);
+  --app-color-primary-hover: var(--app-primary-700);
+  --app-color-primary-active: var(--app-primary-800);
+  --app-color-primary-foreground: #ffffff;
+  --app-color-secondary: #0f172a;
+  --app-color-secondary-foreground: #ffffff;
+  --app-color-accent: #e4edff;
+  --app-color-accent-foreground: #223b93;
+  --app-color-success: #047857;
+  --app-color-success-soft: #ecfdf3;
+  --app-color-success-foreground: #ffffff;
+  --app-color-warning: #b45309;
+  --app-color-warning-soft: #fff7ed;
+  --app-color-warning-foreground: #ffffff;
+  --app-color-danger: #b42318;
+  --app-color-danger-soft: #fef3f2;
+  --app-color-danger-foreground: #ffffff;
+  --app-color-overlay: rgb(2 6 23 / 0.48);
+  --app-focus-ring-color: color-mix(in srgb, var(--app-color-primary) 36%, transparent);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --app-primary-50: #eff3ff;
+  --app-primary-100: #dfe7ff;
+  --app-primary-200: #c6d4ff;
+  --app-primary-300: #a7bbff;
+  --app-primary-400: #8ba1ff;
+  --app-primary-500: #7387ff;
+  --app-primary-600: #a8b8ff;
+  --app-primary-700: #c2ceff;
+  --app-primary-800: #d9e1ff;
+  --app-primary-900: #ebf0ff;
+  --app-primary-950: #f5f7ff;
+
+  --app-surface-0: #1a2232;
+  --app-surface-50: #182131;
+  --app-surface-100: #141c2a;
+  --app-surface-200: #111827;
+  --app-surface-300: #0f1725;
+  --app-surface-400: #0d1521;
+  --app-surface-500: #0b111b;
+  --app-surface-600: #090f17;
+  --app-surface-700: #070c13;
+  --app-surface-800: #05090f;
+  --app-surface-900: #03070b;
+  --app-surface-950: #020617;
+
+  --app-color-background: #020617;
+  --app-color-foreground: #e5edf8;
+  --app-color-surface: #0b111b;
+  --app-color-surface-elevated: #111827;
+  --app-color-surface-subtle: #172033;
+  --app-color-surface-hover: #1d2a42;
+  --app-color-border: #22304b;
+  --app-color-border-strong: #314566;
+  --app-color-muted: #94a3b8;
+  --app-color-primary: var(--app-primary-600);
+  --app-color-primary-hover: var(--app-primary-700);
+  --app-color-primary-active: var(--app-primary-800);
+  --app-color-primary-foreground: #020617;
+  --app-color-secondary: #e5edf8;
+  --app-color-secondary-foreground: #020617;
+  --app-color-accent: #172554;
+  --app-color-accent-foreground: #dbeafe;
+  --app-color-success: #34d399;
+  --app-color-success-soft: #052e25;
+  --app-color-success-foreground: #022c22;
+  --app-color-warning: #fbbf24;
+  --app-color-warning-soft: #3b2504;
+  --app-color-warning-foreground: #422006;
+  --app-color-danger: #f87171;
+  --app-color-danger-soft: #3a1013;
+  --app-color-danger-foreground: #450a0a;
+  --app-color-overlay: rgb(2 6 23 / 0.7);
+  --app-focus-ring-color: color-mix(in srgb, var(--app-color-primary) 44%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --app-transition-theme: 0ms;
+  }
+}

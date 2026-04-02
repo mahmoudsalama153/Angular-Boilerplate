@@ -1,10 +1,13 @@
+@use 'primeicons/primeicons.css';
+@use 'tailwindcss';
+@use './assets/styles/theme/tokens';
+@use './assets/styles/theme/tailwind-theme';
+@use './assets/styles/theme/primeng-bridge';
 @use './assets/styles/layout/layout';
 @use './assets/styles/shared/shared';
-@use "primeicons/primeicons.css";
-@use "tailwindcss";
 
 @plugin "tailwindcss-primeui";
 
 /* to make tailwind css work with primeui with same class for dark mode */
-/* this should be the same name provided in the primeng config ex:"app-dark" */
-@custom-variant dark (&:where(.app-dark, .app-dark *));
+/* this should match the selector provided in the PrimeNG config */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *, .app-dark, .app-dark *));

@@ -77,6 +77,7 @@ module.exports = defineConfig([
       '@typescript-eslint/only-throw-error': 'error',
       '@typescript-eslint/prefer-optional-chain': 'error',
       '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+      '@angular-eslint/template/label-has-associated-control': 'off',
     },
   },
   {

@@ -1,12 +1,16 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { ThemeService } from './core/services/theme.service';
+import { ThemeToggleComponent } from './shared/components/utility-components/theme-toggle/theme-toggle.component';
+
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ThemeToggleComponent],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
-  protected readonly title = signal('Angular Boilerplate');
+  protected readonly themeService = inject(ThemeService);
 }

@@ -1,0 +1,50 @@
+@theme inline {
+  --font-sans: var(--app-font-sans);
+
+  --radius-sm: var(--app-radius-sm);
+  --radius-md: var(--app-radius-md);
+  --radius-lg: var(--app-radius-lg);
+  --radius-xl: var(--app-radius-xl);
+
+  --shadow-xs: var(--app-shadow-xs);
+  --shadow-sm: var(--app-shadow-sm);
+  --shadow-md: var(--app-shadow-md);
+  --shadow-lg: var(--app-shadow-lg);
+
+  --color-background: var(--app-color-background);
+  --color-foreground: var(--app-color-foreground);
+  --color-surface: var(--app-color-surface);
+  --color-surface-elevated: var(--app-color-surface-elevated);
+  --color-surface-subtle: var(--app-color-surface-subtle);
+  --color-border: var(--app-color-border);
+  --color-border-strong: var(--app-color-border-strong);
+  --color-muted: var(--app-color-muted);
+  --color-primary: var(--app-color-primary);
+  --color-primary-foreground: var(--app-color-primary-foreground);
+  --color-secondary: var(--app-color-secondary);
+  --color-secondary-foreground: var(--app-color-secondary-foreground);
+  --color-accent: var(--app-color-accent);
+  --color-accent-foreground: var(--app-color-accent-foreground);
+  --color-success: var(--app-color-success);
+  --color-success-soft: var(--app-color-success-soft);
+  --color-success-foreground: var(--app-color-success-foreground);
+  --color-warning: var(--app-color-warning);
+  --color-warning-soft: var(--app-color-warning-soft);
+  --color-warning-foreground: var(--app-color-warning-foreground);
+  --color-danger: var(--app-color-danger);
+  --color-danger-soft: var(--app-color-danger-soft);
+  --color-danger-foreground: var(--app-color-danger-foreground);
+}
+
+:root {
+  accent-color: var(--app-color-primary);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--app-color-primary) 24%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--app-color-primary);
+  outline-offset: 2px;
+}

@@ -1,0 +1,84 @@
+:root,
+[data-theme='light'],
+[data-theme='dark'] {
+  --p-primary-50: var(--app-primary-50);
+  --p-primary-100: var(--app-primary-100);
+  --p-primary-200: var(--app-primary-200);
+  --p-primary-300: var(--app-primary-300);
+  --p-primary-400: var(--app-primary-400);
+  --p-primary-500: var(--app-primary-500);
+  --p-primary-600: var(--app-primary-600);
+  --p-primary-700: var(--app-primary-700);
+  --p-primary-800: var(--app-primary-800);
+  --p-primary-900: var(--app-primary-900);
+  --p-primary-950: var(--app-primary-950);
+
+  --p-surface-0: var(--app-surface-0);
+  --p-surface-50: var(--app-surface-50);
+  --p-surface-100: var(--app-surface-100);
+  --p-surface-200: var(--app-surface-200);
+  --p-surface-300: var(--app-surface-300);
+  --p-surface-400: var(--app-surface-400);
+  --p-surface-500: var(--app-surface-500);
+  --p-surface-600: var(--app-surface-600);
+  --p-surface-700: var(--app-surface-700);
+  --p-surface-800: var(--app-surface-800);
+  --p-surface-900: var(--app-surface-900);
+  --p-surface-950: var(--app-surface-950);
+
+  --p-primary-color: var(--app-color-primary);
+  --p-primary-contrast-color: var(--app-color-primary-foreground);
+  --p-primary-hover-color: var(--app-color-primary-hover);
+  --p-primary-active-color: var(--app-color-primary-active);
+  --p-highlight-background: color-mix(
+    in srgb,
+    var(--app-color-primary) 14%,
+    var(--app-color-surface)
+  );
+  --p-highlight-focus-background: color-mix(
+    in srgb,
+    var(--app-color-primary) 22%,
+    var(--app-color-surface)
+  );
+  --p-highlight-color: var(--app-color-primary);
+  --p-highlight-focus-color: var(--app-color-primary);
+
+  --p-text-color: var(--app-color-foreground);
+  --p-text-hover-color: var(--app-color-foreground);
+  --p-text-muted-color: var(--app-color-muted);
+
+  --p-content-background: var(--app-color-surface);
+  --p-content-hover-background: var(--app-color-surface-hover);
+  --p-content-border-color: var(--app-color-border);
+  --p-content-border-radius: var(--app-radius-lg);
+
+  --p-form-field-background: var(--app-color-surface);
+  --p-form-field-disabled-background: var(--app-color-surface-subtle);
+  --p-form-field-border-color: var(--app-color-border);
+  --p-form-field-hover-border-color: var(--app-color-border-strong);
+  --p-form-field-focus-border-color: var(--app-color-primary);
+  --p-form-field-color: var(--app-color-foreground);
+  --p-form-field-placeholder-color: var(--app-color-muted);
+  --p-form-field-shadow: 0 0 0 0.2rem var(--app-focus-ring-color);
+
+  --p-input-background: var(--app-color-surface);
+  --p-input-border-color: var(--app-color-border);
+  --p-input-hover-border-color: var(--app-color-border-strong);
+  --p-input-focus-border-color: var(--app-color-primary);
+
+  --p-focus-ring-width: 0.2rem;
+  --p-focus-ring-style: solid;
+  --p-focus-ring-color: var(--app-focus-ring-color);
+  --p-focus-ring-offset: 0;
+  --p-focus-ring-shadow: 0 0 0 0.2rem var(--app-focus-ring-color);
+
+  --p-mask-background: var(--app-color-overlay);
+  --p-navigation-item-focus-background: var(--app-color-surface-hover);
+  --p-navigation-item-color: var(--app-color-foreground);
+  --p-navigation-item-hover-color: var(--app-color-foreground);
+
+  --p-success-color: var(--app-color-success);
+  --p-info-color: var(--app-color-primary);
+  --p-warn-color: var(--app-color-warning);
+  --p-danger-color: var(--app-color-danger);
+}

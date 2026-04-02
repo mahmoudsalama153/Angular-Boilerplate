@@ -1,13 +1,22 @@
-<label class="font-medium text-sm capitalize mb-[6px] inline-block text-gray-700 {{styleClass()}}">
-  {{title()}}
-  @if(secondaryTitle()){ <span class="ms-1 !font-normal">{{secondaryTitle()}}</span> }
-  @if(required()){ <span class="text-red-700"> *</span> }
-  @if(helpTooltip()){
-  <span><i
-      class="icon-help-circle text-sm ms-1"
-      [pTooltip]="helpTooltip()"
-      tooltipPosition="top"
-      [tooltipStyleClass]="'!max-w-[90%] !w-auto'"
-    ></i></span>
+<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
+<label
+  class="mb-[6px] inline-block text-sm font-medium capitalize text-foreground {{ styleClass() }}"
+>
+  {{ title() }}
+  @if (secondaryTitle()) {
+    <span class="ms-1 !font-normal">{{ secondaryTitle() }}</span>
+  }
+  @if (required()) {
+    <span class="text-danger"> *</span>
+  }
+  @if (helpTooltip()) {
+    <span
+      ><i
+        class="icon-help-circle text-sm ms-1"
+        [pTooltip]="helpTooltip()"
+        tooltipPosition="top"
+        [tooltipStyleClass]="'!max-w-[90%] !w-auto'"
+      ></i
+    ></span>
   }
 </label>
