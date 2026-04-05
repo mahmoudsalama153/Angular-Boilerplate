@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { DrawerModule } from 'primeng/drawer';
 import { SidebarContentComponent } from '../sidebar-content/sidebar-content.component';
 import { I18nService } from '../../../../../shared/services/i18n';
+import { NavbarThemeToggle } from '../NavbarThemeToggle/NavbarThemeToggle';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { I18nService } from '../../../../../shared/services/i18n';
 		ButtonModule,
 		DrawerModule,
 		SidebarContentComponent,
+		NavbarThemeToggle
 	],
 	templateUrl: './layout-navbar.component.html',
 	styleUrl: './layout-navbar.component.scss',

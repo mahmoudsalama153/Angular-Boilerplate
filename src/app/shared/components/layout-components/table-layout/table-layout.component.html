@@ -5,7 +5,7 @@
         @if(!!tableTitle() || !!tableSubTitle()){
         <ng-content select="table-title">
           <h4 class="font-semibold xl:text-2xl text-lg">{{ tableTitle() }}</h4>
-          <h4 class="xl:text-md text-sm text-gray-600">{{ tableSubTitle() }}</h4>
+          <h4 class="xl:text-md text-sm text-surface-600 dark:text-surface-400">{{ tableSubTitle() }}</h4>
         </ng-content>
         }
       </div>
