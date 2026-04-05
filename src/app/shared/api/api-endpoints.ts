@@ -1,9 +1,9 @@
-import { environment } from "../../../environments/environment";
+import { environment } from '../../../environments/environment';
 
 const baseUrl = environment.baseUrl;
 
-const Dashboard = "Dashboard";
-const Auth = "Auth";
+const Dashboard = 'Dashboard';
+const Auth = 'Auth';
 
 export const API_ENDPOINTS = {
   baseUrl: baseUrl,
@@ -11,7 +11,7 @@ export const API_ENDPOINTS = {
     getDashboardData: `${Dashboard}/get-dashboard-data`,
   },
   auth: {
-    investorLogin: `${Auth}/investor-login`,
+    login: `${Auth}/investor-login`,
     windowsLogin: `${Auth}/WinLogin`, //production
     fakeWindowsLogin: `${Auth}/login`,
     refreshToken: `${Auth}/refresh-token`,
