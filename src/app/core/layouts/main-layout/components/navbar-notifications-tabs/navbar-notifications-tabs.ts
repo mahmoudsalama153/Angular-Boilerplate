@@ -8,17 +8,17 @@ import { INotification, INotificationItem } from '../../models/notifications.int
   imports: [TimeAgoPipe, ProgressSpinnerModule, TranslatePipe],
   templateUrl: './navbar-notifications-tabs.html',
   styleUrl: './navbar-notifications-tabs.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarNotificationsTabs {
   notifications = input<INotification[]>();
   loading = input<boolean>();
-  notificationClick = output<INotificationItem>();
+  readonly notificationClick = output<INotificationItem>();
 
   notificationItems = computed<INotificationItem[]>(() => {
-    return []
-  })
+    return [];
+  });
   onNotificationClick(notification: INotificationItem) {
-    this.notificationClick.emit(notification)
+    this.notificationClick.emit(notification);
   }
 }
