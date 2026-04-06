@@ -12,7 +12,7 @@ export class DashboardApiService {
   private readonly baseHttpService = inject(BaseHttpService);
 
   getDashboardData(
-    filter: IDashboardTableFilter
+    filter: IDashboardTableFilter,
   ): Observable<IBaseApiResponse<IDashboardRecord[]>> {
     // return this.baseHttpService.post(API_ENDPOINTS.dashboard.getDashboardData, filter);
     return of({
@@ -21,21 +21,24 @@ export class DashboardApiService {
           id: '1',
           name: 'John Doe',
           email: 'john.doe@example.com',
-          joinDate: new Date().toISOString()
+          joinDate: new Date().toISOString(),
+          actions: [],
+          status: 'active',
         },
         {
           id: '2',
           name: 'Jane Doe',
           email: 'jane.doe@example.com',
-          joinDate: new Date().toISOString()
-        }
+          joinDate: new Date().toISOString(),
+          actions: [],
+          status: 'active',
+        },
       ],
       success: true,
       statusCode: 200,
       message: [],
       errors: null,
-      timestamp: new Date().toISOString()
-    })
+      timestamp: new Date().toISOString(),
+    } as IBaseApiResponse<IDashboardRecord[]>);
   }
 }
-

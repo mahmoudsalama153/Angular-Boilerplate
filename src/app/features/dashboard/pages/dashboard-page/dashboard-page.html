@@ -5,46 +5,45 @@
     pageTitleClass="text-[24px] font-semibold"
     pageSubTitleClass="text-md text-gray-600"
   >
-
     <!-- Statistics Cards -->
     <ng-container ngProjectAs="table-filters">
-      <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
-
-      </div>
+      <!-- <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6"> -->
+      <app-dashboard-filter></app-dashboard-filter>
+      <!-- </div> -->
     </ng-container>
 
     <ng-container ngProjectAs="table-body">
-      <app-table-skeleton
-        [headers]="headers()"
-        [isLoading]="isLoading()"
-      >
+      <app-table-skeleton [headers]="headers()" [isLoading]="isLoading()">
         <app-data-table
           [columns]="headers()"
           [rows]="rows()"
           [(filter)]="filterService.filter"
-          [totalRecords]="totalRecords()"
+          [totalRecords]="rows().length"
           (filterChange)="filterService.applyFilterWithPaging()"
           (sortChange)="applyFilter()"
           [messageTitle]="'No data found'"
           [showCheckBox]="false"
           [rowsCheckable]="false"
         >
-          <ng-template
-            #itemsTemplate
-            let-item="item"
-          >
-            <td>{{ item.name }}</td>
-            <td>{{ item.email }}</td>
-            <td>{{ item.joinDate }}</td>
+          <ng-template #itemsTemplate let-item="item">
+            <td>{{ item.planCode }}</td>
+            <td>{{ item.investorName }}</td>
+            <td>{{ item.title }}</td>
+            <td>{{ item.planType }}</td>
+            <td>{{ item.submissionDate | localizedDate }}</td>
+            <td>{{ item.assignedEmployee }}</td>
             <td>
-              <button
-                pButton
-                type="button"
-                icon="pi pi-eye"
-              ></button>
+              <app-base-tag
+                [value]="getStatusLabelKey(item.status)"
+                [color]="getStatusBadgeClass(item.status)"
+                [maxChars]="27"
+              ></app-base-tag>
             </td>
-          </ng-template>
-        </app-data-table></app-table-skeleton>
+            <td>
+              <app-dashboard-actions-menu [actions]="item.actions" [element]="item" />
+            </td>
+          </ng-template> </app-data-table
+      ></app-table-skeleton>
     </ng-container>
   </app-table-layout>
 </div>

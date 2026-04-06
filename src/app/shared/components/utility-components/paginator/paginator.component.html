@@ -6,7 +6,7 @@
       [icon]="prevIcon()"
       [iconPos]="prevIconPos()"
       [raised]="true"
-      [label]="'common.previous' | translate"
+      [label]="'Previous'"
       [disabled]="prevIsDisabled()"
       (onClick)="goToPage(filter().pageNumber - 1)"
       fluid
@@ -32,7 +32,7 @@
       styleClass="col-span-1 !py-2 !w-full !text-sm"
       [icon]="nextIcon()"
       [raised]="true"
-      [label]="'common.next' | translate"
+      [label]="'Next'"
       [iconPos]="nextIconPos()"
       [disabled]="nextIsDisabled()"
       (onClick)="goToPage(filter().pageNumber + 1)"

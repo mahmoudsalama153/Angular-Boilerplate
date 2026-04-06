@@ -7,16 +7,19 @@ import { take } from 'rxjs';
 
 @Injectable()
 export class DashboardFilterService extends AbstractServiceFilter<IDashboardTableFilter> {
-
   store = inject(DashboardStore);
   filterClass = new DashboardFilter();
   filter = signal(this.filterClass.filter);
   adaptedFilter = computed(() => {
-    var filter = this.filter();
+    const filter = this.filter();
     return {
       ...filter,
-      joinDateFrom: filter.joinDateFrom ? new Date(filter.joinDateFrom).toLocaleDateString('en-CA') : undefined,
-      joinDateTo: filter.joinDateTo ? new Date(filter.joinDateTo).toLocaleDateString('en-CA') : undefined,
+      joinDateFrom: filter.joinDateFrom
+        ? new Date(filter.joinDateFrom).toLocaleDateString('en-CA')
+        : undefined,
+      joinDateTo: filter.joinDateTo
+        ? new Date(filter.joinDateTo).toLocaleDateString('en-CA')
+        : undefined,
     };
   });
 
@@ -52,5 +55,4 @@ export class DashboardFilterService extends AbstractServiceFilter<IDashboardTabl
     this.updateFilterSignal();
     this.store.getDashboardData(this.adaptedFilter()).pipe(take(1)).subscribe();
   }
-
 }

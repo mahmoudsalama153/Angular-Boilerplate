@@ -18,12 +18,13 @@ export class LocalizedDatePipe implements PipeTransform {
 
   transform(
     value: string | number | Date | null | undefined,
-    format: string = 'dd MMM yyyy',
-    timezone?: string
+    format = 'dd MMM yyyy',
+    timezone?: string,
   ): string {
     this.i18nService.currentLanguage(); // Mark for check when language changes
     this.cdr.markForCheck();
 
+    // eslint-disable-next-line eqeqeq
     if (value == null || value === '') {
       return '';
     }

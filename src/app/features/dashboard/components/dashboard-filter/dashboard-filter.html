@@ -1,1 +1,85 @@
-<p>dashboard-filter works!</p>,
+<div class="flex flex-col md:flex-row gap-4">
+  <div class="grid grid-cols-12 gap-4 flex-1">
+    <div class="col-span-12 md:col-span-4">
+      <div class="flex flex-col">
+        <input
+          type="text"
+          pInputText
+          name="planSearch"
+          [placeholder]="'Search'"
+          [ngModel]="filter().search ?? ''"
+          (ngModelChange)="onSearchTextChange($event)"
+        />
+      </div>
+    </div>
+
+    <div class="col-span-12 md:col-span-2">
+      <div class="flex flex-col">
+        <p-multiselect
+          name="type"
+          [options]="multiSelectDropdownExample()"
+          [(ngModel)]="filter().type"
+          [placeholder]="'Select type'"
+          optionLabel="label"
+          optionValue="value"
+          [showClear]="true"
+          appendTo="body"
+        ></p-multiselect>
+      </div>
+    </div>
+
+    <div class="col-span-12 md:col-span-2">
+      <div class="flex flex-col">
+        <p-select
+          name="singleSelectExample"
+          [options]="singleSelectDropdownExample()"
+          [(ngModel)]="selectedSingleExample"
+          [placeholder]="'Select status'"
+          optionLabel="label"
+          optionValue="value"
+          [showClear]="true"
+          appendTo="body"
+        ></p-select>
+      </div>
+    </div>
+
+    <div class="col-span-12 md:col-span-4">
+      <div class="flex flex-col">
+        <p-datepicker
+          name="submissionDate"
+          selectionMode="range"
+          [readonlyInput]="true"
+          [(ngModel)]="filter().submissionDate"
+          (ngModelChange)="onPickerChange($event)"
+          [maxDate]="maxSubmissionDate"
+          [showIcon]="true"
+          [showButtonBar]="true"
+          [iconDisplay]="'input'"
+          [placeholder]="'Select submission date'"
+          appendTo="body"
+        ></p-datepicker>
+      </div>
+    </div>
+  </div>
+  @if (filterService.showClearAll()) {
+    <div>
+      <div class="flex h-full items-center md:justify-end">
+        <p-overlaybadge
+          [value]="filterService.activeFiltersCount()"
+          severity="danger"
+          class="filter-reset-badge"
+        >
+          <p-button
+            [severity]="'secondary'"
+            (click)="onClearFilters()"
+            [rounded]="true"
+            [icon]="'icon-reload'"
+            [outlined]="true"
+            [ariaLabel]="'Reset filters'"
+          >
+          </p-button>
+        </p-overlaybadge>
+      </div>
+    </div>
+  }
+</div>

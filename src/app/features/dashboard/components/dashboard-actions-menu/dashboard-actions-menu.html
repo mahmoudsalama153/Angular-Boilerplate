@@ -1,0 +1,16 @@
+<p-button
+  (click)="menu.toggle($event)"
+  severity="secondary"
+  [text]="true"
+  [plain]="true"
+  icon="pi pi-ellipsis-v"
+  ariaLabel="Open actions menu"
+/>
+
+<p-menu
+  #menu
+  appendTo="body"
+  styleClass="!text-gray-400 max-w-[165px]"
+  [model]="menuItems()"
+  [popup]="true"
+/>

@@ -1,8 +1,8 @@
-import { IDashboardRecord, IDashboardTableFilter } from "../interfaces";
-import { inject } from '@angular/core';
-import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
+import { IDashboardRecord, IDashboardTableFilter } from '../interfaces';
+import { computed, inject } from '@angular/core';
+import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
 import { finalize, tap } from 'rxjs';
-import { DashboardApiService } from "../api/dashboard/dashboard-api.service";
+import { DashboardApiService } from '../api/dashboard/dashboard-api.service';
 
 interface IDashboardState {
   loading: boolean;
@@ -21,6 +21,29 @@ const initialState: IDashboardState = {
 export const DashboardStore = signalStore(
   { providedIn: 'root' },
   withState(initialState),
+  withComputed(() => {
+    return {
+      multiSelectDropdownExample: computed<unknown[]>(() => {
+        return [
+          {
+            label: 'Type 1',
+            value: 'type1',
+          },
+          {
+            label: 'Type 2',
+            value: 'type2',
+          },
+        ];
+      }),
+      singleSelectDropdownExample: computed<unknown[]>(() => {
+        return [
+          { label: 'Viewed', value: 'viewed' },
+          { label: 'Deleted', value: 'deleted' },
+          { label: 'Editted', value: 'editted' },
+        ];
+      }),
+    };
+  }),
   withMethods((store) => {
     const dashboardPlansApiService = inject(DashboardApiService);
 
@@ -34,9 +57,9 @@ export const DashboardStore = signalStore(
           }),
           finalize(() => {
             patchState(store, { loading: false });
-          })
+          }),
         );
       },
     };
-  })
+  }),
 );
