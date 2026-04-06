@@ -1,4 +1,4 @@
-<div class="data-table bg-white border-1 border-gray-200 rounded-xl overflow-hidden">
+<div class="data-table border-1 rounded-xl overflow-hidden">
   <p-table
     [loading]="isLoading()"
     [columns]="columns()"
@@ -10,53 +10,69 @@
     [rowSelectable]="rowSelectable()"
     [dataKey]="rowDataKey()"
   >
-    <ng-template pTemplate="header" let-columns>
+    <ng-template
+      pTemplate="header"
+      let-columns
+    >
       <tr>
         @if (rowsCheckable()) {
-          <th class="text-sm !font-medium !ps-[24px] !pe-0 !py-[13px]">
-            <p-tableHeaderCheckbox />
-          </th>
+        <th class="text-sm !font-medium !ps-[24px] !pe-0 !py-[13px]">
+          <p-tableHeaderCheckbox />
+        </th>
         }
         @for (col of columns; track col) {
-          <th class="text-sm !font-medium !px-[24px] !py-[13px] whitespace-nowrap">
-            <div
-              class="flex items-center gap-[4px]"
-              [ngClass]="{
+        <th class="text-sm !font-medium !px-[24px] !py-[13px] whitespace-nowrap">
+          <div
+            class="flex items-center gap-[4px]"
+            [ngClass]="{
                 'cursor-pointer': col.isSortable && totalRecords() > 0,
               }"
-              [attr.tabindex]="col.isSortable && totalRecords() > 0 ? 0 : null"
-              [attr.role]="col.isSortable && totalRecords() > 0 ? 'button' : null"
-              (click)="col.isSortable && totalRecords() > 0 && setSortingKey(col)"
-              (keydown.enter)="col.isSortable && totalRecords() > 0 && setSortingKey(col)"
-            >
-              {{ col.label }}
-              @if (col.tooltip) {
-                <i class="icon-help-circle text-sm ms-1 text-white!" [pTooltip]="col.tooltip"></i>
-              }
-              @if (col.isSortable && totalRecords() > 0) {
-                <i
-                  class="transition-transform duration-300 cursor-pointer text-white! text-xs ms-[7px]"
-                  [ngClass]="{
+            [attr.tabindex]="col.isSortable && totalRecords() > 0 ? 0 : null"
+            [attr.role]="col.isSortable && totalRecords() > 0 ? 'button' : null"
+            (click)="col.isSortable && totalRecords() > 0 && setSortingKey(col)"
+            (keydown.enter)="col.isSortable && totalRecords() > 0 && setSortingKey(col)"
+          >
+            {{ col.label }}
+            @if (col.tooltip) {
+            <i
+              class="icon-help-circle text-sm ms-1 text-white!"
+              [pTooltip]="col.tooltip"
+            ></i>
+            }
+            @if (col.isSortable && totalRecords() > 0) {
+            <i
+              class="transition-transform duration-300 cursor-pointer text-white! text-xs ms-[7px]"
+              [ngClass]="{
                     'icon-arrow-up': filter().sortField === col.sortingKey,
                     'icon-chevron-selector-vertical': filter().sortField !== col.sortingKey,
                     'rotate-180':
                       filter().sortField === col.sortingKey &&
                       filter().sortOrder === ESortingOrder.desc,
                   }"
-                  role="button"
-                ></i>
-              }
-            </div>
-          </th>
+              role="button"
+            ></i>
+            }
+          </div>
+        </th>
         }
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
-      <tr class="sm:text-sm text-xs" (click)="onRowClick.emit({ item, rowIndex })">
+    <ng-template
+      pTemplate="body"
+      let-item
+      let-rowIndex="rowIndex"
+    >
+      <tr
+        class="sm:text-sm text-xs"
+        (click)="onRowClick.emit({ item, rowIndex })"
+      >
         @if (rowsCheckable()) {
-          <td class="!ps-[24px] !pe-1 !bg-white">
-            <p-tableCheckbox [disabled]="disabledRows()[rowIndex]" [value]="item" />
-          </td>
+        <td class="!ps-[24px] !pe-1 !bg-white">
+          <p-tableCheckbox
+            [disabled]="disabledRows()[rowIndex]"
+            [value]="item"
+          />
+        </td>
         }
         <ng-container
           [ngTemplateOutletContext]="{ item: item }"
@@ -66,7 +82,10 @@
     </ng-template>
     <ng-template pTemplate="emptymessage">
       <tr>
-        <td colspan="100%" class="!p-20">
+        <td
+          colspan="100%"
+          class="!p-20"
+        >
           <ng-content select="emptyContent">
             <app-empty-records [messageTitle]="messageTitle()"></app-empty-records>
           </ng-content>
@@ -77,12 +96,12 @@
     <ng-template pTemplate="footer"> </ng-template>
   </p-table>
   @if (hasPaginator() && totalRecords() > 0) {
-    <div class="flex">
-      <app-paginator
-        class="flex-1"
-        [totalRecords]="totalRecords()"
-        [(filter)]="filter"
-      ></app-paginator>
-    </div>
+  <div class="flex">
+    <app-paginator
+      class="flex-1"
+      [totalRecords]="totalRecords()"
+      [(filter)]="filter"
+    ></app-paginator>
+  </div>
   }
 </div>

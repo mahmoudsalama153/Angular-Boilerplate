@@ -23,9 +23,9 @@ const TABLE_COMPONENT: ComponentsDesignTokens = {
           color: '{text-tertiary}',
         },
         headerCell: {
-          background: '{brand.600}',
+          background: '{primary.600}',
           color: '{text.white}',
-        },
+        }
       },
     },
   },
@@ -124,6 +124,20 @@ const MY_PRESET = definePreset(Aura, {
     },
   },
   semantic: {
+    primary: {
+      25: '{brand.25}',
+      50: '{brand.50}',
+      100: '{brand.100}',
+      200: '{brand.200}',
+      300: '{brand.300}',
+      400: '{brand.400}',
+      500: '{brand.500}',
+      600: '{brand.600}',
+      700: '{brand.700}',
+      800: '{brand.800}',
+      900: '{brand.900}',
+      950: '{brand.950}',
+    },
     colorScheme: {
       light: {
         text: {
@@ -192,6 +206,18 @@ const MY_PRESET = definePreset(Aura, {
             solid: '{success.600}',
           },
         },
+        border: {
+          primary: '{gray.300}',
+          secondary: '{gray.200}',
+          secondaryAlt: '#0000008%',
+          tertiary: '{gray.100}',
+          disabled: '{gray.300}',
+          disabledSubtle: '{gray.200}',
+          brand: '{brand.500}',
+          brandAlt: '{brand.600}',
+          error: '{error.500}',
+          errorSubtle: '{error.300}'
+        }
       },
       dark: {
         text: {
@@ -260,6 +286,18 @@ const MY_PRESET = definePreset(Aura, {
             solid: '{success.600}',
           },
         },
+        border: {
+          primary: '{gray.700}',
+          secondary: '{gray.800}',
+          secondaryAlt: '{gray.700}',
+          tertiary: '{gray.800}',
+          disabled: '{gray.700}',
+          disabledSubtle: '{gray.800}',
+          brand: '{brand.400}',
+          brandAlt: '{grayDark.700}',
+          error: '{error.400}',
+          errorSubtle: '{error.500}'
+        }
       },
     },
   },
