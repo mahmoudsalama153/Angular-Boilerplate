@@ -1,4 +1,4 @@
-import { EDashboardActions } from '../enums';
+import { EDashboardActions, EDashboardStatus, EDashboardTypes } from '../enums';
 import { IFilterBase } from './filter.interface';
 
 export interface IDashboardRecord {
@@ -6,7 +6,10 @@ export interface IDashboardRecord {
   name: string;
   email: string;
   joinDate: string;
-  status: string;
+  assignedEmployee: string
+  title: string;
+  type: EDashboardTypes;
+  status: EDashboardStatus;
   actions: EDashboardActions[];
 }
 

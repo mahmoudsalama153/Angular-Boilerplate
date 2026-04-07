@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TranslatePipe } from '../../../../core/pipes';
+import { TranslatePipe } from '../../../../shared/pipes';
 @Component({
   selector: 'app-layout-footer',
   imports: [RouterLink, TranslatePipe],

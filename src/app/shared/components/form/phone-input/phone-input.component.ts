@@ -4,7 +4,7 @@ import { SelectModule } from 'primeng/select';
 import { InputTextModule } from 'primeng/inputtext';
 import { IPhoneValue, ICountry } from '../../../../shared/interfaces';
 import { getCountriesWithPreferred, getCountryByCode } from '../../../../shared/data/countries.data';
-import { TranslatePipe } from '../../../../core/pipes';
+import { TranslatePipe } from '../../../../shared/pipes';
 import { I18nService } from '../../../services/i18n/i18n.service';
 
 @Component({

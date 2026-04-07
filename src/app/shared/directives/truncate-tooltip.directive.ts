@@ -11,7 +11,6 @@ import {
 
 @Directive({
   selector: '[appTruncateTooltip]',
-  standalone: true
 })
 export class TruncateTooltipDirective {
 

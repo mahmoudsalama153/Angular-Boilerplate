@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ImageModule } from 'primeng/image';
-import { ImageErrorDirective } from '../../../../core/directives/image-error.directive';
+import { ImageErrorDirective } from '../../../../shared/directives/image-error.directive';
 @Component({
 	selector: 'app-base-logo',
 	imports: [ImageModule, ImageErrorDirective],

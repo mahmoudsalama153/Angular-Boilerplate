@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
-import { TranslatePipe } from '../../../../core/pipes';
+import { TranslatePipe } from '../../../../shared/pipes';
 import { BaseErrorComponent } from '../../../../shared/components/base-components/base-error/base-error.component';
 import { BaseLabelComponent } from '../../../../shared/components/base-components/base-label/base-label.component';
 import { PasswordToggleComponent } from '../../../../shared/components/form/password-toggle/password-toggle.component';

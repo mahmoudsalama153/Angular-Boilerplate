@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TranslatePipe } from '../../../../pipes';
-import { ImageErrorDirective } from '../../../../directives';
+import { ImageErrorDirective } from '@app/shared/directives';
+import { TranslatePipe } from '@app/shared/pipes';
+
 
 
 @Component({

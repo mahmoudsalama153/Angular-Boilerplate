@@ -7,7 +7,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ResetButton } from '../../components/reset-button/reset-button';
-import { TranslatePipe } from '../../../../core/pipes';
+import { TranslatePipe } from '../../../../shared/pipes';
 import { BaseErrorComponent } from '../../../../shared/components/base-components/base-error/base-error.component';
 import { BaseLabelComponent } from '../../../../shared/components/base-components/base-label/base-label.component';
 import { I18nService } from '../../../../shared/services/i18n';

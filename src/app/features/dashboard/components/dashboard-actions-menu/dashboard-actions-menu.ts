@@ -8,6 +8,7 @@ import { DashboardActionsMapper } from '@app/features/dashboard/classes/dashboar
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-dashboard-actions-menu',
+  standalone: true,
   imports: [Button, Menu],
   templateUrl: './dashboard-actions-menu.html',
   styleUrl: './dashboard-actions-menu.scss',

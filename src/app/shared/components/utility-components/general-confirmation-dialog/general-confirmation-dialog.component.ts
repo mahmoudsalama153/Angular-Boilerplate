@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, model, output } from '@angular/core';
 import { BaseDialogComponent } from '../../base-components/base-dialog/base-dialog.component';
-import { TranslatePipe } from '../../../../core/pipes';
+import { TranslatePipe } from '../../../../shared/pipes';
 
 @Component({
   selector: 'app-general-confirmation-dialog',

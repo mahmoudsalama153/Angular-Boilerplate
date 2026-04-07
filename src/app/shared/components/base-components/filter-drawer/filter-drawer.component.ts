@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input, model, output } from "@angular/core";
 import { ButtonModule } from "primeng/button";
 import { BaseDrawerComponent } from "../base-drawer/base-drawer.component";
-import { TranslatePipe } from "../../../../core/pipes";
+import { TranslatePipe } from "../../../../shared/pipes";
 import { IFilterBase } from "../../../interfaces";
 
 

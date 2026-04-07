@@ -6,7 +6,7 @@ import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordPolicy } from '../../components/password-policy/password-policy';
 import { ResetPasswordFormService } from '../../services/reset-password-form/reset-password-form';
-import { TranslatePipe } from '../../../../core/pipes';
+import { TranslatePipe } from '../../../../shared/pipes';
 import { BaseErrorComponent } from '../../../../shared/components/base-components/base-error/base-error.component';
 import { BaseLabelComponent } from '../../../../shared/components/base-components/base-label/base-label.component';
 import { PasswordToggleComponent } from '../../../../shared/components/form/password-toggle/password-toggle.component';

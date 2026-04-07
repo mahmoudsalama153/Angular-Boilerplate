@@ -1,8 +1,9 @@
 ---
-context: true
-priority: high
-scope: project
+description: Core Angular (v20+), TypeScript, and accessibility standards for this repo
+alwaysApply: true
 ---
+
+# Project coding rules
 
 You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
 

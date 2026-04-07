@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { TimeAgoPipe } from '../../../../pipes';
 import { INotification, INotificationItem } from '../../models/notifications.interface';
-import { NotificationItemFactory } from '@app/core/layouts/main-layout/components/navbar-notifications/notification-item.factory';
+import { TimeAgoPipe, TranslatePipe } from '@app/shared/pipes';
+import { NotificationItemFactory } from '../navbar-notifications/notification-item.factory';
 
 @Component({
   selector: 'app-navbar-notifications-tabs',

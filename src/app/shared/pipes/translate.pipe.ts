@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform, inject, ChangeDetectorRef } from '@angular/core';
 import { I18nService } from '../../shared/services/i18n';
-import { TranslationKey } from '../i18n/translation-types';
+import { TranslationKey } from '@app/core/i18n/translation-types';
 
 @Pipe({
   name: 'translate',

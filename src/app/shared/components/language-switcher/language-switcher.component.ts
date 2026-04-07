@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { I18nService, SupportedLanguage } from '../../services/i18n/i18n.service';
 import { SelectModule } from 'primeng/select';
-import { TranslatePipe } from '../../../core/pipes';
+import { TranslatePipe } from '../../../shared/pipes';
 
 @Component({
 	selector: 'app-language-switcher',

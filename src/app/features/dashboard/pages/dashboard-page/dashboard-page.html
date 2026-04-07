@@ -13,7 +13,10 @@
     </ng-container>
 
     <ng-container ngProjectAs="table-body">
-      <app-table-skeleton [headers]="headers()" [isLoading]="isLoading()">
+      <app-table-skeleton
+        [headers]="headers()"
+        [isLoading]="isLoading()"
+      >
         <app-data-table
           [columns]="headers()"
           [rows]="rows()"
@@ -25,12 +28,15 @@
           [showCheckBox]="false"
           [rowsCheckable]="false"
         >
-          <ng-template #itemsTemplate let-item="item">
-            <td>{{ item.planCode }}</td>
-            <td>{{ item.investorName }}</td>
+          <ng-template
+            #itemsTemplate
+            let-item="item"
+          >
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
             <td>{{ item.title }}</td>
-            <td>{{ item.planType }}</td>
-            <td>{{ item.submissionDate | localizedDate }}</td>
+            <td>{{ item.type }}</td>
+            <td>{{ item.joinDate | localizedDate }}</td>
             <td>{{ item.assignedEmployee }}</td>
             <td>
               <app-base-tag
@@ -40,10 +46,12 @@
               ></app-base-tag>
             </td>
             <td>
-              <app-dashboard-actions-menu [actions]="item.actions" [element]="item" />
+              <app-dashboard-actions-menu
+                [actions]="item.actions"
+                [element]="item"
+              />
             </td>
-          </ng-template> </app-data-table
-      ></app-table-skeleton>
+          </ng-template> </app-data-table></app-table-skeleton>
     </ng-container>
   </app-table-layout>
 </div>

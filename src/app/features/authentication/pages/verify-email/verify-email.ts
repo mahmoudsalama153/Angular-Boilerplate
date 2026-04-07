@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@ang
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { TranslatePipe } from '../../../../core/pipes';
+import { TranslatePipe } from '../../../../shared/pipes';
 import { ERoutes } from '../../../../shared/enums/routes.enum';
 import { I18nService } from '../../../../shared/services/i18n';
 import { ToasterService } from '../../../../shared/services/toaster/toaster.service';

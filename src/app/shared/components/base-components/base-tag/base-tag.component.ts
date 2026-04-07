@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TagModule } from 'primeng/tag';
-import { TruncateTooltipDirective } from '../../../../core/directives/truncate-tooltip.directive';
+import { TruncateTooltipDirective } from '../../../../shared/directives/truncate-tooltip.directive';
 import { TColors } from '../../../interfaces';
 
 @Component({

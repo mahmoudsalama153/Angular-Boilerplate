@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, computed, effect, ElementRef, input, OnDestroy, output, signal, viewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { TranslatePipe } from '../../../../core/pipes';
+import { TranslatePipe } from '../../../../shared/pipes';
 import { BaseLabelComponent } from "../../base-components/base-label/base-label.component";
 
 @Component({

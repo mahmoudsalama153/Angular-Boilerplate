@@ -33,10 +33,10 @@ interface IDropdownOption {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardFilter implements OnInit {
+  readonly filterService = inject(DashboardFilterService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly searchSubject = new Subject<string>();
   readonly maxSubmissionDate = new Date();
-  readonly filterService = inject(DashboardFilterService);
   private readonly i18nService = inject(I18nService);
   private readonly route = inject(ActivatedRoute);
   private readonly dashboardStore = inject(DashboardStore);

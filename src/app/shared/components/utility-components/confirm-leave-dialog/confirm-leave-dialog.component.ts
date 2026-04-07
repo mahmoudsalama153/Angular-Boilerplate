@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ContentChild, model, output, TemplateRef } from '@angular/core';
 import { BaseDialogComponent } from '../../base-components/base-dialog/base-dialog.component';
 import { ButtonModule } from 'primeng/button';
-import { TranslatePipe } from '../../../../core/pipes';
+import { TranslatePipe } from '../../../../shared/pipes';
 
 @Component({
   selector: 'app-confirm-leave-dialog',

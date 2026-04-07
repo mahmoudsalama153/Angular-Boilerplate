@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, input, model, output, viewChild } f
 import { ButtonModule } from "primeng/button";
 import { type Dialog, DialogModule } from "primeng/dialog";
 import { DividerModule } from "primeng/divider";
-import { TranslatePipe } from "../../../../core/pipes";
+import { TranslatePipe } from "../../../../shared/pipes";
 import { TDialogPosition, TPrimeSeverity } from "../../../interfaces";
 @Component({
   selector: "app-base-dialog",
