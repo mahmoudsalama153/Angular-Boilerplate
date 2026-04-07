@@ -41,10 +41,10 @@
             }
             @if (col.isSortable && totalRecords() > 0) {
             <i
-              class="transition-transform duration-300 cursor-pointer text-white! text-xs ms-[7px]"
+              class="transition-transform duration-300 cursor-pointer text-white! pi text-xs! ms-[7px]"
               [ngClass]="{
-                    'icon-arrow-up': filter().sortField === col.sortingKey,
-                    'icon-chevron-selector-vertical': filter().sortField !== col.sortingKey,
+                    'pi-arrow-up': filter().sortField === col.sortingKey,
+                    'pi-arrow-right-arrow-left rotate-90': filter().sortField !== col.sortingKey,
                     'rotate-180':
                       filter().sortField === col.sortingKey &&
                       filter().sortOrder === ESortingOrder.desc,

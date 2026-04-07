@@ -12,7 +12,7 @@ import { Popover } from 'primeng/popover';
 import { AvatarModule } from 'primeng/avatar';
 import { ERoutes } from '@app/shared/enums/routes.enum';
 import { MenuItem } from 'primeng/api';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 type ProfileDropdownAction = 'my-profile' | 'sign-out';
 
@@ -24,7 +24,7 @@ interface ProfileDropdownItem {
 
 @Component({
   selector: 'app-navbar-profile-dropdown',
-  imports: [PopoverModule, AvatarModule],
+  imports: [PopoverModule, AvatarModule, RouterLink],
   templateUrl: './navbar-profile-dropdown.component.html',
   styleUrl: './navbar-profile-dropdown.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

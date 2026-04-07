@@ -56,9 +56,7 @@ export class DashboardPage extends DashboardStatus {
 
   rows = this.dashboardStore.list;
 
-  applyFilter = () => {
-    this.isLoading.set(true);
-    this.totalRecords.set(this.rows().length);
-    this.isLoading.set(false);
-  };
+  applyFilter() {
+    this.filterService.applyFilter();
+  }
 }
