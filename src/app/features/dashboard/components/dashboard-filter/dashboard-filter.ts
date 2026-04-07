@@ -8,17 +8,17 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import { DashboardFilterService } from '@app/features/dashboard/services/dashboard-filter/dashboard-filter.service';
+import { DashboardFilterService } from '@app/features/dashboard/services/dashboard-filter.service';
 import { I18nService } from '@app/shared/services/i18n';
 import { Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { MultiSelect } from 'primeng/multiselect';
 import { DatePicker } from 'primeng/datepicker';
 import { OverlayBadge } from 'primeng/overlaybadge';
 import { Button } from 'primeng/button';
-import { DashboardStore } from '@app/shared/stores/dashboard.store';
 import { FormsModule } from '@angular/forms';
 import { InputText } from 'primeng/inputtext';
 import { Select } from 'primeng/select';
+import { DashboardStore } from '@app/features/dashboard/store/dashboard.store';
 
 interface IDropdownOption {
   label: string;

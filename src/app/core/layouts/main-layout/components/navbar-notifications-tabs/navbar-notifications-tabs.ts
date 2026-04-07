@@ -1,11 +1,12 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { TimeAgoPipe, TranslatePipe } from '../../../../pipes';
+import { TimeAgoPipe } from '../../../../pipes';
 import { INotification, INotificationItem } from '../../models/notifications.interface';
+import { NotificationItemFactory } from '@app/core/layouts/main-layout/components/navbar-notifications/notification-item.factory';
 
 @Component({
   selector: 'app-navbar-notifications-tabs',
-  imports: [TimeAgoPipe, ProgressSpinnerModule, TranslatePipe],
+  imports: [TimeAgoPipe, ProgressSpinnerModule],
   templateUrl: './navbar-notifications-tabs.html',
   styleUrl: './navbar-notifications-tabs.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,10 +16,8 @@ export class NavbarNotificationsTabs {
   loading = input<boolean>();
   readonly notificationClick = output<INotificationItem>();
 
-  notificationItems = computed<INotificationItem[]>(() => {
-    return [];
-  });
   onNotificationClick(notification: INotificationItem) {
-    this.notificationClick.emit(notification);
+    const notificationToEmit = NotificationItemFactory.create(notification);
+    this.notificationClick.emit(notificationToEmit);
   }
 }

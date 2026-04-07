@@ -3,7 +3,7 @@ import { TableLayoutComponent } from '../../../../shared/components/layout-compo
 import { DataTableComponent } from '../../../../shared/components/layout-components/data-table/data-table.component';
 import { TableSkeletonComponent } from '../../../../shared/components/skeletons/table-skeleton/table-skeleton.component';
 import { ITableHeaderItem } from '../../../../shared/interfaces';
-import { DashboardFilterService } from '../../services/dashboard-filter/dashboard-filter.service';
+import { DashboardFilterService } from '../../services/dashboard-filter.service';
 import { LocalizedDatePipe } from '../../../../core/pipes/localized-date.pipe';
 import { DashboardActionsMenu } from '../../components/dashboard-actions-menu/dashboard-actions-menu';
 import { BaseTagComponent } from '@app/shared/components/base-components/base-tag/base-tag.component';

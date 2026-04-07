@@ -5,8 +5,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TranslatePipe } from '../../../../core/pipes';
 import { ERoutes } from '../../../../shared/enums/routes.enum';
 import { I18nService } from '../../../../shared/services/i18n';
-import { AuthStore } from '../../../../shared/stores/auth/auth.store';
 import { ToasterService } from '../../../../shared/services/toaster/toaster.service';
+import { AuthStore } from '@app/features/authentication/store/auth.store';
 
 @Component({
   selector: 'app-verify-email',

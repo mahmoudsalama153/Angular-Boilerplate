@@ -14,7 +14,7 @@ import { PasswordToggleComponent } from '../../../../shared/components/form/pass
 import { PhoneInputComponent } from '../../../../shared/components/form/phone-input/phone-input.component';
 import { I18nService } from '../../../../shared/services/i18n';
 import { ToasterService } from '../../../../shared/services/toaster/toaster.service';
-import { AuthStore } from '../../../../shared/stores/auth/auth.store';
+import { AuthStore } from '@app/features/authentication/store/auth.store';
 @Component({
   selector: 'app-register',
   imports: [

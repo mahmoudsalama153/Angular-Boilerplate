@@ -1,9 +1,9 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { AbstractServiceFilter } from '../../../../shared/classes/abstract-service-filter';
-import { IDashboardTableFilter } from '../../../../shared/interfaces/dashboard.interface';
-import { DashboardStore } from '../../../../shared/stores/dashboard.store';
-import { DashboardFilter } from '../../classes/dashboard-filter.class';
+import { AbstractServiceFilter } from '../../../shared/classes/abstract-service-filter';
+import { IDashboardTableFilter } from '../../../shared/interfaces/dashboard.interface';
+import { DashboardFilter } from '../classes/dashboard-filter.class';
 import { take } from 'rxjs';
+import { DashboardStore } from '@app/features/dashboard/store/dashboard.store';
 
 @Injectable()
 export class DashboardFilterService extends AbstractServiceFilter<IDashboardTableFilter> {

@@ -12,7 +12,7 @@ import { BaseErrorComponent } from '../../../../shared/components/base-component
 import { BaseLabelComponent } from '../../../../shared/components/base-components/base-label/base-label.component';
 import { I18nService } from '../../../../shared/services/i18n';
 import { ToasterService } from '../../../../shared/services/toaster/toaster.service';
-import { AuthStore } from '../../../../shared/stores/auth/auth.store';
+import { AuthStore } from '@app/features/authentication/store/auth.store';
 
 @Component({
   selector: 'app-forgot-password',

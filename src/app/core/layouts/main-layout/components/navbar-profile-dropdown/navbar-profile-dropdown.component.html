@@ -35,29 +35,27 @@
   (onHide)="onPopoverHide()"
   styleClass="profile-dropdown-popover min-w-[280px]"
 >
-  <div class="flex flex-col border border-gray-200 rounded">
-    <div class="px-2 py-2">
-      @for (item of dropdownItems(); track item.label) {
-        @if (item.routerLink) {
-          <a
-            [routerLink]="item.routerLink"
-            (click)="profilePopover.hide()"
-            class="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-left text-gray-900 no-underline transition-colors hover:bg-gray-100"
-          >
-            <i class="{{ item.icon }} text-gray-600"></i>
-            <span>{{ item.label }}</span>
-          </a>
-        } @else if (item.command) {
-          <button
-            type="button"
-            (click)="executeItemCommand(item)"
-            class="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-left text-gray-900 transition-colors hover:bg-gray-100"
-          >
-            <i class="{{ item.icon }} text-gray-600"></i>
-            <span>{{ item.label }}</span>
-          </button>
-        }
+  <div class="flex flex-col">
+    @for (item of dropdownItems(); track item.label) {
+      @if (item.routerLink) {
+        <a
+          [routerLink]="item.routerLink"
+          (click)="profilePopover.hide()"
+          class="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-left text-gray-900 no-underline transition-colors hover:bg-gray-100"
+        >
+          <i class="{{ item.icon }} text-gray-600"></i>
+          <span>{{ item.label }}</span>
+        </a>
+      } @else if (item.command) {
+        <button
+          type="button"
+          (click)="executeItemCommand(item)"
+          class="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-left text-gray-900 transition-colors hover:bg-gray-100"
+        >
+          <i class="{{ item.icon }} text-gray-600"></i>
+          <span>{{ item.label }}</span>
+        </button>
       }
-    </div>
+    }
   </div>
 </p-popover>

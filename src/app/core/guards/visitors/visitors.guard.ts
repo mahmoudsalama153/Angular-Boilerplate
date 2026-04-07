@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { Router, type CanActivateFn } from '@angular/router';
 import { ERoutes } from '../../../shared/enums/routes.enum';
-import { AuthStore } from '../../../shared/stores/auth/auth.store';
+import { AuthStore } from '@app/features/authentication/store/auth.store';
 
 export const visitorsGuard: CanActivateFn = () => {
   const authStore = inject(AuthStore);

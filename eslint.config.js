@@ -51,6 +51,7 @@ module.exports = defineConfig([
       '@angular-eslint/prefer-inject': 'error',
       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
       '@angular-eslint/prefer-output-readonly': 'error',
+      '@typescript-eslint/non-nullable-type-assertion-style': 'off',
       '@angular-eslint/use-component-selector': 'error',
       '@typescript-eslint/consistent-type-definitions': 'off',
       '@angular-eslint/template/click-events-have-key-events': 'off',

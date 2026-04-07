@@ -1,8 +1,8 @@
-import { IDashboardRecord, IDashboardTableFilter } from '../interfaces';
 import { computed, inject } from '@angular/core';
+import { DashboardApiService } from '@app/shared/api/dashboard/dashboard-api.service';
+import { IDashboardRecord, IDashboardTableFilter } from '@app/shared/interfaces';
 import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
 import { finalize, tap } from 'rxjs';
-import { DashboardApiService } from '../api/dashboard/dashboard-api.service';
 
 interface IDashboardState {
   loading: boolean;

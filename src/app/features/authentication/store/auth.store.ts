@@ -2,13 +2,13 @@ import { computed, inject } from '@angular/core';
 import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
 import { type Observable, catchError, finalize, of, switchMap, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AuthApiService } from '../../api/auth/auth-api-service';
+import { AuthApiService } from '@app/shared/api/auth/auth-api-service';
 import {
   IAuthData,
   IRegisterRequest,
   IResetPasswordRequest,
-} from '../../interfaces/auth.interface';
-import { LocalStorage } from '../../services/local-storage/local-storage';
+} from '@app/shared/interfaces/auth.interface';
+import { LocalStorage } from '@app/shared/services/local-storage/local-storage';
 
 const initialState: {
   authResponse: IAuthData | null;

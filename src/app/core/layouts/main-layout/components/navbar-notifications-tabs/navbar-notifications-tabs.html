@@ -1,4 +1,4 @@
-@if (loading() && !notificationItems().length) {
+@if (loading() && !notifications()?.length) {
   <div class="flex justify-center items-center py-6">
     <p-progress-spinner
       strokeWidth="8"
@@ -7,13 +7,13 @@
       [style]="{ width: '20px', height: '20px' }"
     />
   </div>
-} @else if (!notificationItems().length) {
+} @else if (!notifications()?.length) {
   <div class="flex flex-col items-center justify-center py-12 text-gray-500">
     <p class="text-sm font-medium">No notifications</p>
   </div>
 } @else {
   <div class="bg-white rounded-lg">
-    @for (notification of notificationItems() || []; track notification.id) {
+    @for (notification of notifications() || []; track notification.id) {
       <div
         class="hover:bg-gray-50 transition-colors relative border-b p-6 border-b-surface-800"
         [class.cursor-pointer]="notification.route?.length"
