@@ -18,7 +18,8 @@
         <p-multiselect
           name="type"
           [options]="multiSelectDropdownExample()"
-          [(ngModel)]="filter().type"
+          [ngModel]="filter().type"
+          (ngModelChange)="onTypeChange($event)"
           [placeholder]="'Select type'"
           optionLabel="label"
           optionValue="value"
@@ -33,7 +34,8 @@
         <p-select
           name="singleSelectExample"
           [options]="singleSelectDropdownExample()"
-          [(ngModel)]="selectedSingleExample"
+          [ngModel]="filter().singleSelectExample"
+          (ngModelChange)="onSingleSelectChange($event)"
           [placeholder]="'Select status'"
           optionLabel="label"
           optionValue="value"
@@ -49,7 +51,7 @@
           name="submissionDate"
           selectionMode="range"
           [readonlyInput]="true"
-          [(ngModel)]="filter().submissionDate"
+          [ngModel]="filter().submissionDate"
           (ngModelChange)="onPickerChange($event)"
           [maxDate]="maxSubmissionDate"
           [showIcon]="true"
@@ -73,7 +75,7 @@
             [severity]="'secondary'"
             (click)="onClearFilters()"
             [rounded]="true"
-            [icon]="'icon-reload'"
+            [icon]="'pi pi-refresh'"
             [outlined]="true"
             [ariaLabel]="'Reset filters'"
           >

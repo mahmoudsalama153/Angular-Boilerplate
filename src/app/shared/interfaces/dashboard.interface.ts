@@ -6,7 +6,7 @@ export interface IDashboardRecord {
   name: string;
   email: string;
   joinDate: string;
-  assignedEmployee: string
+  assignedEmployee: string;
   title: string;
   type: EDashboardTypes;
   status: EDashboardStatus;
@@ -19,6 +19,7 @@ export interface IDashboardTableFilter extends IFilterBase<TDashboardTableKeys> 
   search?: string;
   joinDateFrom?: string;
   joinDateTo?: string;
-  type?: string | null;
-  submissionDate?: string | null;
+  type?: string[] | null;
+  singleSelectExample?: string | null;
+  submissionDate?: Date[] | null;
 }

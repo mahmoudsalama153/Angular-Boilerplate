@@ -20,6 +20,7 @@ export class DashboardFilter extends Filter<IDashboardTableFilter, TDashboardTab
       joinDateFrom: undefined,
       joinDateTo: undefined,
       type: undefined,
+      singleSelectExample: undefined,
       submissionDate: undefined,
     };
 

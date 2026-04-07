@@ -41,7 +41,6 @@ export class DashboardFilter implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly dashboardStore = inject(DashboardStore);
   readonly filter = this.filterService.filter;
-  selectedSingleExample: string | null = null;
 
   multiSelectDropdownExample = computed(() => {
     return this.dashboardStore.multiSelectDropdownExample() as IDropdownOption[];
@@ -75,17 +74,20 @@ export class DashboardFilter implements OnInit {
     });
   }
 
-  onSearchTextChange(_value: string) {
-    // this.filterService.updateFilterSignal({ searchText: value, pageNumber: 1 });
-    // this.searchSubject.next(value ?? '');
+  onSearchTextChange(value: string) {
+    this.filterService.filter.update((f) => ({ ...f, search: value }));
   }
 
-  onPickerChange(_value: Date[] | undefined) {
-    // value = value?.filter((x) => !!x) ?? [];
-    // if (!!value && (value.length === 2 || value.length === 0)) {
-    //   this.filterService.updateFilterSignal({ submissionDate: value.length === 2 ? value : undefined, pageNumber: 1 });
-    //   this.filterService.applyFilterWithPaging();
-    // }
+  onTypeChange(value: string[]): void {
+    this.filterService.filter.update((f) => ({ ...f, type: value }));
+  }
+
+  onSingleSelectChange(value: string | null): void {
+    this.filterService.filter.update((f) => ({ ...f, singleSelectExample: value }));
+  }
+
+  onPickerChange(value: Date[] | null) {
+    this.filterService.filter.update((f) => ({ ...f, submissionDate: value }));
   }
 
   onClearFilters() {

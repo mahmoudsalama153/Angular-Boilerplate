@@ -25,7 +25,14 @@ export class DashboardFilterService extends AbstractServiceFilter<IDashboardTabl
 
   showClearAll = computed(() => {
     const current = this.filter();
-    return current.search?.trim() || current.joinDateFrom || current.joinDateTo;
+    return (
+      current.search?.trim() ||
+      current.joinDateFrom ||
+      current.joinDateTo ||
+      current.type?.length ||
+      current.singleSelectExample ||
+      current.submissionDate?.length
+    );
   });
 
   activeFiltersCount = computed(() => {
@@ -33,8 +40,18 @@ export class DashboardFilterService extends AbstractServiceFilter<IDashboardTabl
     const searchCount = current.search?.trim() ? 1 : 0;
     const joinDateFromCount = current.joinDateFrom ? 1 : 0;
     const joinDateToCount = current.joinDateTo ? 1 : 0;
+    const typeCount = current.type?.length ?? 0;
+    const singleSelectCount = current.singleSelectExample ? 1 : 0;
+    const submissionDateCount = current.submissionDate?.length === 2 ? 1 : 0;
 
-    return searchCount + joinDateFromCount + joinDateToCount;
+    return (
+      searchCount +
+      joinDateFromCount +
+      joinDateToCount +
+      typeCount +
+      singleSelectCount +
+      submissionDateCount
+    );
   });
 
   performFilter$() {
