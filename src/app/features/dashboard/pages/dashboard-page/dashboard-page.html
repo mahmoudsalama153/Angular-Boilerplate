@@ -5,18 +5,12 @@
     pageTitleClass="text-[24px] font-semibold"
     pageSubTitleClass="text-md text-gray-600"
   >
-    <!-- Statistics Cards -->
     <ng-container ngProjectAs="table-filters">
-      <!-- <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6"> -->
       <app-dashboard-filter></app-dashboard-filter>
-      <!-- </div> -->
     </ng-container>
 
     <ng-container ngProjectAs="table-body">
-      <app-table-skeleton
-        [headers]="headers()"
-        [isLoading]="isLoading()"
-      >
+      <app-table-skeleton [headers]="headers()" [isLoading]="isLoading()">
         <app-data-table
           [columns]="headers()"
           [rows]="rows()"
@@ -28,10 +22,7 @@
           [showCheckBox]="false"
           [rowsCheckable]="false"
         >
-          <ng-template
-            #itemsTemplate
-            let-item="item"
-          >
+          <ng-template #itemsTemplate let-item="item">
             <td>{{ item.id }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.title }}</td>
@@ -46,12 +37,10 @@
               ></app-base-tag>
             </td>
             <td>
-              <app-dashboard-actions-menu
-                [actions]="item.actions"
-                [element]="item"
-              />
+              <app-dashboard-actions-menu [actions]="item.actions" [element]="item" />
             </td>
-          </ng-template> </app-data-table></app-table-skeleton>
+          </ng-template> </app-data-table
+      ></app-table-skeleton>
     </ng-container>
   </app-table-layout>
 </div>

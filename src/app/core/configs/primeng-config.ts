@@ -6,16 +6,18 @@ import { Translation } from 'primeng/api';
 import { ComponentsDesignTokens } from '@primeuix/themes/types';
 
 function getInitialPrimengLocale(): Translation {
-  /* TODO: Add locale selection */
-  // if (typeof window !== 'undefined' && window.localStorage) {
-  //   const lang = localStorage.getItem('preferred-language');
-  //   return lang === 'ar' ? PRIMENG_LOCALE_AR : PRIMENG_LOCALE_EN;
-  // }
   return PRIMENG_LOCALE_EN;
 }
 
 const TABLE_COMPONENT: ComponentsDesignTokens = {
   datatable: {
+    css: `
+      .p-datatable,
+      .p-datatable-tbody > tr > td,
+      .p-datatable-thead > tr > th {
+        font-size: 14px;
+      }
+    `,
     colorScheme: {
       light: {
         row: {
@@ -25,7 +27,7 @@ const TABLE_COMPONENT: ComponentsDesignTokens = {
         headerCell: {
           background: '{primary.600}',
           color: '{text.white}',
-        }
+        },
       },
     },
   },
@@ -216,8 +218,8 @@ const MY_PRESET = definePreset(Aura, {
           brand: '{brand.500}',
           brandAlt: '{brand.600}',
           error: '{error.500}',
-          errorSubtle: '{error.300}'
-        }
+          errorSubtle: '{error.300}',
+        },
       },
       dark: {
         text: {
@@ -296,8 +298,8 @@ const MY_PRESET = definePreset(Aura, {
           brand: '{brand.400}',
           brandAlt: '{grayDark.700}',
           error: '{error.400}',
-          errorSubtle: '{error.500}'
-        }
+          errorSubtle: '{error.500}',
+        },
       },
     },
   },
