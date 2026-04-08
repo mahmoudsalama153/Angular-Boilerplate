@@ -1,5 +1,14 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, inject, input, model, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+  model,
+  output,
+  signal,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PanelModule } from 'primeng/panel';
 import { SidebarDropdownComponent } from '../sidebar-dropdown/sidebar-dropdown.component';
@@ -16,7 +25,7 @@ import { I18nService } from '../../../../../shared/services/i18n';
     PanelModule,
     SidebarDropdownComponent,
     RouterModule,
-    ButtonModule
+    ButtonModule,
   ],
   templateUrl: './sidebar-content.component.html',
   styleUrl: './sidebar-content.component.scss',
@@ -32,7 +41,7 @@ export class SidebarContentComponent {
   collapsed = input<boolean>(false);
   /** When provided, controlled mode (desktop sidebar) - use this for display instead of minimizedSidebarDrawer */
   expanded = input<boolean | null>(null);
-  onToggleCollapsed = output<void>();
+  readonly onToggleCollapsed = output<void>();
 
   minimizedSidebarDrawer = model<boolean>(false);
   displayCollapsed = computed(() =>

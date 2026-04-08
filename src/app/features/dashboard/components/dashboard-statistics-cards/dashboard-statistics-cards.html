@@ -1,0 +1,16 @@
+@for (card of cards; track card.title) {
+  <div
+    class="bg-theme-primary rounded-xl border border-gray-200 p-6 cursor-pointer hover:shadow-md transition-shadow"
+  >
+    <p class="font-medium mb-2">
+      {{ card.title }}
+    </p>
+    <p class="text-2xl font-semibold mb-4">
+      {{ card.value }}
+    </p>
+    <div class="flex items-center gap-1 cursor-pointer text-(--p-text-brand-tertiary)">
+      <span class="font-semibold"> View Details </span>
+      <i class="pi pi-arrow-up-right"></i>
+    </div>
+  </div>
+}

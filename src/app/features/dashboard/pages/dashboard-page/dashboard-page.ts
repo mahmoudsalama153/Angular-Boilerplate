@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TableLayoutComponent } from '../../../../shared/components/layout-components/table-layout/table-layout.component';
 import { DataTableComponent } from '../../../../shared/components/layout-components/data-table/data-table.component';
-import { TableSkeletonComponent } from '../../../../shared/components/skeletons/table-skeleton/table-skeleton.component';
 import { ITableHeaderItem, TDashboardTableKeys } from '../../../../shared/interfaces';
 import { LocalizedDatePipe } from '../../../../shared/pipes/localized-date.pipe';
 import { DashboardActionsMenu } from '../../components/dashboard-actions-menu/dashboard-actions-menu';
@@ -10,6 +9,8 @@ import { DashboardFilter } from '../../components/dashboard-filter/dashboard-fil
 import { BaseTagComponent } from '@app/shared/components/base-components/base-tag/base-tag.component';
 import { DashboardFilterService } from '../../services/dashboard-filter.service';
 import { DashboardStore } from '../../store/dashboard.store';
+import { DashboardStatisticsCards } from '../../components/dashboard-statistics-cards/dashboard-statistics-cards';
+import { TableSkeletonComponent } from '@app/shared/components/skeletons/table-skeleton/table-skeleton.component';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -17,11 +18,12 @@ import { DashboardStore } from '../../store/dashboard.store';
   imports: [
     TableLayoutComponent,
     DataTableComponent,
-    TableSkeletonComponent,
     LocalizedDatePipe,
     DashboardActionsMenu,
     DashboardFilter,
-    BaseTagComponent
+    BaseTagComponent,
+    DashboardStatisticsCards,
+    TableSkeletonComponent,
   ],
   templateUrl: './dashboard-page.html',
   styleUrl: './dashboard-page.scss',
@@ -30,9 +32,9 @@ import { DashboardStore } from '../../store/dashboard.store';
 })
 export class DashboardPage extends DashboardStatus {
   filterService = inject(DashboardFilterService, {
-    self: true  // to get only the instance provided in this page
+    self: true, // to get only the instance provided in this page
   });
-  dashboardStore = inject(DashboardStore)
+  dashboardStore = inject(DashboardStore);
   isLoading = signal<boolean>(false);
   totalRecords = signal<number>(20);
   page = signal<number>(1);
