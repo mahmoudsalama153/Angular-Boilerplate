@@ -1,0 +1,31 @@
+@mixin control-font-size {
+  font-size: 0.875rem;
+
+  [dir='rtl'] & {
+    font-size: 0.9rem;
+  }
+}
+
+@mixin thin-scrollbar($thumb: #e5e7eb, $track: #fafafa, $hover: #d1d5db, $size: 8px) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track;
+    border-radius: calc($size / 2);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+    border-radius: calc($size / 2);
+
+    &:hover {
+      background: $hover;
+    }
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: #{$thumb} #{$track};
+}

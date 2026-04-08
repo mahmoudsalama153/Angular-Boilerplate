@@ -1,0 +1,61 @@
+@use '../mixins' as *;
+
+:root {
+  --p-form-field-disabled-background: #ecedf0;
+  --p-checkbox-width: 1.25rem;
+  --p-checkbox-height: 1.25rem;
+  --p-checkbox-icon-size: 0.75rem;
+}
+
+.p-button,
+.p-inputtext,
+.p-select,
+.p-multiselect,
+.p-autocomplete-input,
+.p-datepicker-input {
+  height: 44px !important;
+}
+
+.p-button,
+.p-select,
+.p-multiselect {
+  border-radius: 8px;
+}
+
+.p-button {
+  padding: 10px 14px;
+}
+
+.p-select-label,
+.p-multiselect-label {
+  display: flex !important;
+  align-items: center;
+  min-height: 100%;
+}
+
+.p-multiselect {
+  .p-multiselect-label .p-chip {
+    border: 1px solid var(--p-primary-200);
+    padding-top: calc((var(--p-multiselect-padding-y) - 1px) / 2);
+    padding-bottom: calc((var(--p-multiselect-padding-y) - 1px) / 2);
+  }
+}
+
+.p-datepicker {
+  &:has(.p-datepicker-input-icon-container) .p-datepicker-clear-icon {
+    inset-inline-end: calc((var(--p-form-field-padding-x) * 2) + var(--p-icon-size)) !important;
+  }
+
+  &:has(input:disabled) .p-datepicker-dropdown {
+    cursor: default;
+  }
+}
+
+.p-datepicker-fluid .p-datepicker-clear-icon {
+  background: var(--p-inputtext-background);
+  padding-inline-start: 4px;
+}
+
+html[dir='rtl'] .p-datepicker-calendar .p-datepicker-header {
+  flex-direction: row-reverse;
+}

@@ -63,12 +63,8 @@
       </div>
 
       <!-- Submit -->
-      <p-button
-        [label]="'auth.login.signIn' | translate"
-        fluid
-        [disabled]="loginForm.invalid || authStore.loading()"
-        type="submit"
-      ></p-button>
+      <!-- [disabled]="loginForm.invalid || authStore.loading()" -->
+      <p-button [label]="'auth.login.signIn' | translate" fluid type="submit"></p-button>
     </div>
 
     <div class="flex justify-center items-center mt-2">

@@ -1,7 +1,7 @@
 @use './assets/styles/layout/layout';
-@use './assets/styles/shared/shared';
-@use "primeicons/primeicons.css";
-@use "tailwindcss";
+@use './assets/styles/vendors/primeng';
+@use 'primeicons/primeicons.css';
+@use 'tailwindcss';
 
 @plugin "tailwindcss-primeui";
 

@@ -1,0 +1,19 @@
+@use '../../../core/variables' as *;
+
+.p-editor {
+  .ql-toolbar button.ql-image {
+    display: none !important;
+  }
+
+  .ql-blank::before {
+    font-style: normal;
+  }
+
+  .ql-container {
+    font-family: $font-family;
+
+    &.ql-disabled .ql-editor {
+      background-color: var(--p-gray-50);
+    }
+  }
+}

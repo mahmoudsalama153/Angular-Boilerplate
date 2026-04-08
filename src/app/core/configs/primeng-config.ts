@@ -1,39 +1,15 @@
 import { definePreset } from '@primeuix/themes';
-import Aura from '@primeuix/themes/aura';
+import Lara from '@primeuix/themes/lara';
+import { PRIME_COMPONENT_TOKENS } from '../design/desin-tokens';
 import { providePrimeNG } from 'primeng/config';
 import { PRIMENG_LOCALE_EN } from './primeng-locale';
 import { Translation } from 'primeng/api';
-import { ComponentsDesignTokens } from '@primeuix/themes/types';
 
 function getInitialPrimengLocale(): Translation {
   return PRIMENG_LOCALE_EN;
 }
 
-const TABLE_COMPONENT: ComponentsDesignTokens = {
-  datatable: {
-    css: `
-      .p-datatable,
-      .p-datatable-tbody > tr > td,
-      .p-datatable-thead > tr > th {
-        font-size: 14px;
-      }
-    `,
-    colorScheme: {
-      light: {
-        row: {
-          background: '{bg-primary}',
-          color: '{text-tertiary}',
-        },
-        headerCell: {
-          background: '{primary.600}',
-          color: '{text.white}',
-        },
-      },
-    },
-  },
-};
-
-const MY_PRESET = definePreset(Aura, {
+const MY_PRESET = definePreset(Lara, {
   primitive: {
     base: {
       white: '#ffffff',
@@ -303,14 +279,12 @@ const MY_PRESET = definePreset(Aura, {
       },
     },
   },
-  components: {
-    ...TABLE_COMPONENT,
-  },
+  components: PRIME_COMPONENT_TOKENS,
 });
 
 export const PRIMENG_CONFIG = [
   providePrimeNG({
-    // ripple: true,
+    ripple: true,
     translation: getInitialPrimengLocale(),
     theme: {
       preset: MY_PRESET,

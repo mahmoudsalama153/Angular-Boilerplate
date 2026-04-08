@@ -1,0 +1,45 @@
+@use '../mixins' as *;
+
+.p-popover {
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+
+  @media (min-width: 576px) {
+    transform: translateY(16px) !important;
+  }
+
+  * {
+    @include thin-scrollbar;
+  }
+}
+
+.p-popover .p-popover-content {
+  padding: 0;
+}
+
+.p-popover::before,
+.p-popover::after {
+  display: none;
+  content: none;
+  border: 0;
+}
+
+.p-dialog-header {
+  align-items: start;
+}
+
+.p-select-overlay {
+  max-width: 300px;
+}
+
+.p-select-items-wrapper {
+  overflow-x: auto;
+}
+
+.p-select-option {
+  overflow: visible;
+  white-space: nowrap;
+  min-width: max-content;
+}

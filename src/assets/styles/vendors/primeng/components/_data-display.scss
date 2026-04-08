@@ -1,0 +1,47 @@
+@use '../mixins' as *;
+
+.p-timeline-hidden-opposite {
+  .p-timeline-event-opposite {
+    display: none !important;
+  }
+}
+
+.p-tooltip {
+  .p-tooltip-text {
+    font-size: 0.75rem;
+    text-align: start;
+  }
+}
+
+.p-chip-label {
+  max-width: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.p-accordion {
+  .p-accordioncontent-content {
+    border-radius: 0 0 12px 12px;
+  }
+}
+
+.p-datatable {
+  .p-datatable-wrapper,
+  .p-datatable-scrollable-body,
+  .p-datatable-scrollable-body-table,
+  .p-datatable-scrollable-header,
+  .p-datatable-scrollable-footer,
+  * {
+    @include thin-scrollbar;
+  }
+}
+
+.p-datatable-table {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.p-datatable-header {
+  border: 0;
+}

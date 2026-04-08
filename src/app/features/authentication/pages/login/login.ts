@@ -52,6 +52,7 @@ export class Login {
   loginForm = this.loginFormService.loginForm;
 
   publicLogin() {
+    this.router.navigate(['/dashboard']);
     // if (this.loginForm.valid) {
     //   const formValue = this.loginForm.value;
     //   this.authStore.login(formValue.email!, formValue.password!).subscribe({

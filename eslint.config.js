@@ -55,6 +55,7 @@ module.exports = defineConfig([
       '@angular-eslint/use-component-selector': 'error',
       '@typescript-eslint/consistent-type-definitions': 'off',
       '@angular-eslint/template/click-events-have-key-events': 'off',
+      '@angular-eslint/template/label-has-associated-control': 'off',
       '@angular-eslint/template/interactive-supports-focus': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@angular-eslint/use-pipe-transform-interface': 'error',

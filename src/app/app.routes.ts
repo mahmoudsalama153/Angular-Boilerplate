@@ -10,6 +10,11 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: ERoutes.dashboard,
+        pathMatch: 'full',
+      },
+      {
+        path: ERoutes.dashboard,
         loadComponent: () =>
           import('./features/dashboard/pages/dashboard-page/dashboard-page').then(
             (m) => m.DashboardPage,
