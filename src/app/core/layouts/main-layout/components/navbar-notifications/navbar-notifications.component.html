@@ -1,7 +1,7 @@
 <div
   (click)="toggleNotificationTab($event)"
   [class.hidden-notification-counter]="!unreadCount()"
-  class="cursor-pointer bg-[#F9FAFB] rounded-full p-2"
+  class="cursor-pointer bg-(--p-bg-surface-alt) rounded-full p-2"
 >
   <p-overlaybadge [value]="unreadCount()" severity="danger" class="notification-badge">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,10 @@
     <div class="flex justify-between py-[20px] px-[24px]">
       <div class="flex justify-between items-center w-full">
         <p class="font-semibold">Notifications</p>
-        <a class="flex items-center gap-2 text-blue-800 cursor-pointer" (click)="markAllAsRead()">
+        <a
+          class="flex items-center gap-2 text-(--p-text-brand-secondary-hover) cursor-pointer"
+          (click)="markAllAsRead()"
+        >
           <svg
             width="15"
             height="8"
@@ -36,7 +39,7 @@
           >
             <path
               d="M9.75 0.75L3.75 6.75L0.75 3.75M13.75 0.75L7.75 6.75L5.75 4.75"
-              stroke="#4767A5"
+              stroke="text-(--p-text-brand-secondary-hover)"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -45,12 +48,14 @@
           Mark all as read
         </a>
       </div>
-      <span class="text-gray-400 text-xl cursor-pointer" (click)="notificationsModal.toggle($event)"
+      <span
+        class="text-(--p-text-subtle-soft) text-xl cursor-pointer"
+        (click)="notificationsModal.toggle($event)"
         ><i class="icon-close"></i
       ></span>
     </div>
     <div
-      class="max-h-[500px] max-w-[35rem]! md:min-w-[35rem] overflow-auto border-t border-gray-200"
+      class="max-h-[500px] max-w-[35rem]! md:min-w-[35rem] overflow-auto border-t border-(--p-border-subtle)"
       (scroll)="onScroll($event)"
     >
       <app-navbar-notifications-tabs

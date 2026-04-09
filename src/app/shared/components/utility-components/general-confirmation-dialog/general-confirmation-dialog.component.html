@@ -15,11 +15,11 @@
   [confirmButtonSeverity]="confirmButtonSeverity()"
 >
   <div [class]="classes()">
-    <p class="text-base font-semibold text-gray-900"> {{ title() | translate }} </p>
-    @if(description()){
-    <p class="mt-[8px]">
-      {{ description() }}
-    </p>
+    <p class="text-base font-semibold text-(--p-text-primary)">{{ title() | translate }}</p>
+    @if (description()) {
+      <p class="mt-[8px]">
+        {{ description() }}
+      </p>
     }
   </div>
 </app-base-dialog>

@@ -3,7 +3,7 @@
   @if (authStore.loading()) {
     <div class="flex flex-col items-center justify-center gap-4 min-h-[400px]">
       <p-progressSpinner styleClass="w-12 h-12" strokeWidth="4"></p-progressSpinner>
-      <p class="text-gray-600">{{ 'auth.verifyEmail.verifying' | translate }}</p>
+      <p class="text-(--p-text-tertiary)">{{ 'auth.verifyEmail.verifying' | translate }}</p>
     </div>
   }
 
@@ -12,15 +12,15 @@
     <div class="flex flex-col gap-3">
       <!-- Success Icon -->
       <div
-        class="w-[40px] h-[40px] rounded-xl bg-warning-50 flex justify-between border-1 border-gray-200 items-center justify-center"
+        class="w-[40px] h-[40px] rounded-xl bg-(--p-bg-warning-primary) flex border border-(--p-border-subtle) items-center justify-center"
       >
-        <i class="icon-check-circle text-gray-900 text-xl"></i>
+        <i class="icon-check-circle text-(--p-text-primary) text-xl"></i>
       </div>
 
-      <h1 class="text-3xl font-semibold text-gray-900">
+      <h1 class="text-3xl font-semibold text-(--p-text-primary)">
         {{ 'auth.verifyEmail.title' | translate }}
       </h1>
-      <p class="text-gray-600 max-w-md">{{ 'auth.verifyEmail.subtitle' | translate }}</p>
+      <p class="text-(--p-text-tertiary) max-w-md">{{ 'auth.verifyEmail.subtitle' | translate }}</p>
     </div>
 
     <p-button

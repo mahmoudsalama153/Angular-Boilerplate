@@ -3,54 +3,46 @@
   [class.sidebar-collapsed]="displayCollapsed()"
 >
   <span
-    class="absolute top-[60px] bg-white cursor-pointer rounded-full p-2 border border-gray-200 flex items-center justify-center h-[30px] w-[30px] transition-all duration-300 ease-in-out"
+    class="absolute top-[60px] bg-(--p-bg-surface) cursor-pointer rounded-full p-2 border border-(--p-border-subtle) flex items-center justify-center h-[30px] w-[30px] transition-all duration-300 ease-in-out"
     [ngClass]="togglePositionClass()"
     (click)="toggleSidebarDrawerCollapsed()"
   >
-    <i [class]="sidebarToggleIcon() + ' text-gray-400'"></i>
+    <i [class]="sidebarToggleIcon() + ' text-(--p-text-subtle-soft)'"></i>
   </span>
   <div>
     @if (displayCollapsed()) {
-    <a
-      routerLink="/"
-      class="flex justify-center p-2"
-    >
-      <img
-        src="assets/images/small-logo.svg"
-        alt="Logo"
-        class="w-8 h-8 object-contain"
-      />
-    </a>
+      <a routerLink="/" class="flex justify-center p-2">
+        <img src="assets/images/small-logo.svg" alt="Logo" class="w-8 h-8 object-contain" />
+      </a>
     } @else {
-    <!-- logo -->
-    <div class="ps-4">
-      <span class="text-primary text-3xl font-bold">FlairsTech</span>
-    </div>
+      <!-- logo -->
+      <div class="ps-4">
+        <span class="text-primary text-3xl font-bold">FlairsTech</span>
+      </div>
     }
     <div
       class="sidebar-links transition-[margin] duration-300 ease-in-out mt-[48px]"
       [class.mt-4]="displayCollapsed()"
     >
       <ul class="list-unstyles">
-        @for(link of sidebarLinks(); track link.routerLink){
-        @if(link.show){
-        <li class="mb-[8px]">
-          @if(link.children && link.children.length > 0){
-          <app-sidebar-dropdown
-            [link]="link"
-            [collapsed]="displayCollapsed()"
-            (onCloseSidebarDrawer)="closeSidebarDrawer()"
-          ></app-sidebar-dropdown>
+        @for (link of sidebarLinks(); track link.routerLink) {
+          @if (link.show) {
+            <li class="mb-[8px]">
+              @if (link.children && link.children.length > 0) {
+                <app-sidebar-dropdown
+                  [link]="link"
+                  [collapsed]="displayCollapsed()"
+                  (onCloseSidebarDrawer)="closeSidebarDrawer()"
+                ></app-sidebar-dropdown>
+              } @else {
+                <app-sidebar-link
+                  [link]="link"
+                  [collapsed]="displayCollapsed()"
+                  (click)="closeSidebarDrawer()"
+                ></app-sidebar-link>
+              }
+            </li>
           }
-          @else {
-          <app-sidebar-link
-            [link]="link"
-            [collapsed]="displayCollapsed()"
-            (click)="closeSidebarDrawer()"
-          ></app-sidebar-link>
-          }
-        </li>
-        }
         }
       </ul>
     </div>

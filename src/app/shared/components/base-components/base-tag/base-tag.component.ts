@@ -4,39 +4,46 @@ import { TruncateTooltipDirective } from '../../../../shared/directives/truncate
 import { TColors } from '../../../interfaces';
 
 @Component({
-	selector: 'app-base-tag',
-	imports: [TagModule, TruncateTooltipDirective],
-	templateUrl: './base-tag.component.html',
-	styleUrl: './base-tag.component.scss',
-	changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-base-tag',
+  imports: [TagModule, TruncateTooltipDirective],
+  templateUrl: './base-tag.component.html',
+  styleUrl: './base-tag.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BaseTagComponent {
-	color = input<TColors>('red');
-	value = input<string>('');
-	styleClass = input<string>('');
-	maxChars = input<number>(30);
-	disableTruncateTooltip = input<boolean>(false);
+  color = input<TColors>('red');
+  value = input<string>('');
+  styleClass = input<string>('');
+  maxChars = input<number>(30);
+  disableTruncateTooltip = input<boolean>(false);
 
-	getBadgeClasses(): string {
-		const colorMap: Record<TColors, string> = {
-			primary: 'border-primary-200 bg-primary-50 text-primary-700',
-			blue: 'border-blue-200 bg-blue-50 text-blue-700',
-			fadedBlue: 'border-slate-300 bg-slate-50 text-[#4767A5]',
-			red: 'border-[#DD9A95] bg-[#F7E9E8] text-[#901C13]',
-			green: 'border-green-200 bg-green-50 text-green-700',
-			yellow: 'border-yellow-200 bg-yellow-50 text-yellow-700',
-			indigo: 'border-indigo-200 bg-indigo-50 text-indigo-700',
-			purple: 'border-purple-200 bg-purple-50 text-purple-700',
-			pink: 'border-pink-200 bg-pink-50 text-pink-700',
-			gray: 'border-gray-200 bg-gray-50 text-gray-700',
-			orange: 'border-[#FFE68F] bg-[#FFFAE7] text-[#AD8908]',
-			fadeGreen: 'border-[#8CC0AA] bg-[#E6F1ED] text-[#055A36]',
-			cloudBlue: 'border-[#B8DCF5] bg-[#F2F9FD] text-[#006EB8]',
-		};
-		return colorMap[this.color()];
-	}
+  getBadgeClasses(): string {
+    const colorMap: Record<TColors, string> = {
+      primary:
+        'border-(--p-border-brand) bg-(--p-bg-brand-primary) text-(--p-text-brand-secondary)',
+      blue: 'border-(--p-border-brand) bg-(--p-bg-brand-primary) text-(--p-text-brand-secondary)',
+      fadedBlue:
+        'border-(--p-border-brand) bg-(--p-bg-brand-primary) text-(--p-text-brand-tertiary)',
+      red: 'border-(--p-border-error-subtle) bg-(--p-bg-error-primary) text-(--p-text-error-primary)',
+      green:
+        'border-(--p-border-subtle) bg-(--p-bg-success-primary) text-(--p-text-success-primary)',
+      yellow:
+        'border-(--p-border-subtle) bg-(--p-bg-warning-primary) text-(--p-text-warning-primary)',
+      indigo: 'border-(--p-border-brand) bg-(--p-bg-brand-primary) text-(--p-text-brand-secondary)',
+      purple: 'border-(--p-border-brand) bg-(--p-bg-brand-primary) text-(--p-text-brand-secondary)',
+      pink: 'border-(--p-border-error-subtle) bg-(--p-bg-error-primary) text-(--p-text-error-primary)',
+      gray: 'border-(--p-border-subtle) bg-(--p-bg-secondary) text-(--p-text-secondary)',
+      orange:
+        'border-(--p-border-subtle) bg-(--p-bg-warning-primary) text-(--p-text-warning-primary)',
+      fadeGreen:
+        'border-(--p-border-subtle) bg-(--p-bg-success-primary) text-(--p-text-success-primary)',
+      cloudBlue:
+        'border-(--p-border-brand) bg-(--p-bg-brand-primary) text-(--p-text-brand-secondary)',
+    };
+    return colorMap[this.color()];
+  }
 
-	getEffectiveClasses(): string {
-		return this.styleClass() + ' ' + this.getBadgeClasses();
-	}
+  getEffectiveClasses(): string {
+    return this.styleClass() + ' ' + this.getBadgeClasses();
+  }
 }

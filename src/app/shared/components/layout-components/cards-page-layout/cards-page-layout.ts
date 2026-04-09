@@ -11,5 +11,5 @@ export class CardsPageLayout {
   pageTitle = input.required<string>();
   pageSubTitle = input.required<string>();
   pageTitleClass = input<string>('font-semibold xl:text-2xl text-lg');
-  pageSubTitleClass = input<string>('xl:text-md text-sm text-gray-600');
+  pageSubTitleClass = input<string>('xl:text-md text-sm text-(--p-text-tertiary)');
 }

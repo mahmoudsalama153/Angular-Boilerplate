@@ -1,11 +1,13 @@
 <!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
-<label class="font-medium capitalize mb-[6px] inline-block text-gray-700 {{ styleClass() }}">
+<label
+  class="font-medium capitalize mb-[6px] inline-block text-(--p-text-secondary) {{ styleClass() }}"
+>
   {{ title() }}
   @if (secondaryTitle()) {
     <span class="ms-1 !font-normal">{{ secondaryTitle() }}</span>
   }
   @if (required()) {
-    <span class="text-red-700"> *</span>
+    <span class="text-(--p-text-error-primary-hover)"> *</span>
   }
   @if (helpTooltip()) {
     <span

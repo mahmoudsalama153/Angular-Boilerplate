@@ -3,9 +3,13 @@
     [routerLink]="link().routerLink"
     (click)="onCloseSidebarDrawer.emit()"
     routerLinkActive="bg-primary text-white"
-    class="group flex items-center justify-center hover:!bg-gray-50 text-[16px] transition-all duration-300 ease-in-out block w-full p-3 rounded-lg font-semibold p-[12px]"
+    class="group flex items-center justify-center hover:!bg-(--p-bg-secondary) text-[16px] transition-all duration-300 ease-in-out block w-full p-3 rounded-lg font-semibold p-[12px]"
   >
-    <i class="{{link().icon}} text-gray-400 group-[.bg-primary]:text-white text-2xl w-[25px] transition-colors"></i>
+    <i
+      class="{{
+        link().icon
+      }} text-(--p-text-subtle-soft) group-[.bg-primary]:text-white text-2xl w-[25px] transition-colors"
+    ></i>
   </a>
 } @else {
   <p-panel
@@ -20,27 +24,31 @@
         [routerLink]="link().routerLink"
         (click)="onCloseSidebarDrawer.emit()"
         routerLinkActive="bg-primary text-white"
-        class="group flex items-center hover:!bg-gray-50 text-[16px] transition-all duration-300 ease-in-out block w-full p-3 rounded-lg font-semibold p-[12px]"
+        class="group flex items-center hover:!bg-(--p-bg-secondary) text-[16px] transition-all duration-300 ease-in-out block w-full p-3 rounded-lg font-semibold p-[12px]"
       >
-        <i class="{{link().icon}} me-[11px] text-gray-400 group-[.bg-primary]:text-white text-2xl transition-colors"></i>
-        {{link().label}}
+        <i
+          class="{{
+            link().icon
+          }} me-[11px] text-(--p-text-subtle-soft) group-[.bg-primary]:text-white text-2xl transition-colors"
+        ></i>
+        {{ link().label }}
       </a>
     </ng-template>
 
     @let children = link().children;
-    @for(child of children; track child.routerLink){
-    @if(child.show){
-    <a
-      [routerLink]="child.routerLink"
-      (click)="onCloseSidebarDrawer.emit()"
-      routerLinkActive="bg-primary text-white"
-      [routerLinkActiveOptions]="{ exact: false }"
-      class="group flex items-center hover:!bg-gray-50 text-[16px] transition-all duration-300 ease-in-out block w-full p-3 rounded-lg font-semibold p-[12px] mt-2"
-    >
-      <i class="w-[30px]"></i>
-      {{child.label}}
-    </a>
-    }
+    @for (child of children; track child.routerLink) {
+      @if (child.show) {
+        <a
+          [routerLink]="child.routerLink"
+          (click)="onCloseSidebarDrawer.emit()"
+          routerLinkActive="bg-primary text-white"
+          [routerLinkActiveOptions]="{ exact: false }"
+          class="group flex items-center hover:!bg-(--p-bg-secondary) text-[16px] transition-all duration-300 ease-in-out block w-full p-3 rounded-lg font-semibold p-[12px] mt-2"
+        >
+          <i class="w-[30px]"></i>
+          {{ child.label }}
+        </a>
+      }
     }
   </p-panel>
 }

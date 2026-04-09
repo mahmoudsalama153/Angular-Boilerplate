@@ -14,7 +14,7 @@
 .existing-signature-image {
   max-width: 100%;
   max-height: 200px;
-  border: 1px solid var(--p-gray-200);
+  border: 1px solid var(--p-border-subtle);
   border-radius: 8px;
   padding: 0.5rem;
   background: white;
@@ -29,7 +29,7 @@
 .canvas-wrapper {
   width: 100%;
   overflow: hidden;
-  border: 2px dashed var(--p-gray-300);
+  border: 2px dashed var(--p-border-strong);
   border-radius: 8px;
   background: white;
 }
@@ -48,7 +48,7 @@
 
 .signature-placeholder {
   text-align: center;
-  color: var(--p-gray-500);
+  color: var(--p-text-subtle);
   font-size: 0.875rem;
   margin: 0;
 }

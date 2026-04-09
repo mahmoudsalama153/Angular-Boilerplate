@@ -119,7 +119,12 @@ const MY_PRESET = definePreset(Lara, {
     colorScheme: {
       light: {
         text: {
+          primary: '{gray.900}',
           color: '{gray.900}',
+          muted: '{gray.600}',
+          subtle: '{gray.500}',
+          subtleSoft: '{gray.400}',
+          inverse: '{base.white}',
           primaryOnBrand: '{base.white}',
           secondary: '{gray.700}',
           secondaryHover: 'gray.800',
@@ -142,8 +147,14 @@ const MY_PRESET = definePreset(Lara, {
           errorPrimaryHover: '{error.700}',
           warningPrimary: '{warning.600}',
           successPrimary: '{success.600}',
+          link: '{brand.700}',
+          linkHover: '{brand.800}',
         },
         bg: {
+          surface: '{base.white}',
+          surfaceAlt: '{gray.50}',
+          elevated: '{base.white}',
+          canvas: '{gray.50}',
           primary: '{base.white}',
           primaryAlt: '{base.white}',
           primaryHover: '{gray.50}',
@@ -185,6 +196,9 @@ const MY_PRESET = definePreset(Lara, {
           },
         },
         border: {
+          strong: '{gray.300}',
+          subtle: '{gray.200}',
+          focus: '{brand.500}',
           primary: '{gray.300}',
           secondary: '{gray.200}',
           secondaryAlt: '#0000008%',
@@ -199,7 +213,12 @@ const MY_PRESET = definePreset(Lara, {
       },
       dark: {
         text: {
+          primary: '{grayDark.50}',
           color: '{grayDark.50}',
+          muted: '{grayDark.400}',
+          subtle: '{grayDark.500}',
+          subtleSoft: '{gray.400}',
+          inverse: '{base.white}',
           primaryOnBrand: '{grayDark.50}',
           secondary: '{grayDark.300}',
           secondaryHover: '{grayDark.200}',
@@ -222,8 +241,14 @@ const MY_PRESET = definePreset(Lara, {
           errorPrimaryHover: '{error.300}',
           warningPrimary: '{warning.400}',
           successPrimary: '{success.400}',
+          link: '{brand.300}',
+          linkHover: '{brand.200}',
         },
         bg: {
+          surface: '{grayDark.950}',
+          surfaceAlt: '{grayDark.900}',
+          elevated: '{grayDark.900}',
+          canvas: '{grayDark.900}',
           primary: '{grayDark.950}',
           primaryAlt: '{grayDark.900}',
           primaryHover: '{grayDark.800}',
@@ -265,6 +290,9 @@ const MY_PRESET = definePreset(Lara, {
           },
         },
         border: {
+          strong: '{gray.700}',
+          subtle: '{gray.800}',
+          focus: '{brand.400}',
           primary: '{gray.700}',
           secondary: '{gray.800}',
           secondaryAlt: '{gray.700}',

@@ -1,7 +1,9 @@
 <div class="flex flex-col gap-3">
-  <h1 class="text-3xl font-semibold text-gray-900">{{ 'auth.login.title' | translate }}</h1>
+  <h1 class="text-3xl font-semibold text-(--p-text-primary)">
+    {{ 'auth.login.title' | translate }}
+  </h1>
   <!-- TODO: set color -->
-  <p class="text-gray-600">{{ 'auth.login.description' | translate }}</p>
+  <p class="text-(--p-text-tertiary)">{{ 'auth.login.description' | translate }}</p>
 </div>
 
 <div class="mt-5 mb-5">
@@ -68,7 +70,7 @@
     </div>
 
     <div class="flex justify-center items-center mt-2">
-      <p class="text-gray-600">{{ 'auth.login.dontHaveAccount' | translate }}</p>
+      <p class="text-(--p-text-tertiary)">{{ 'auth.login.dontHaveAccount' | translate }}</p>
       <!-- TODO: set link -->
       <p-button
         class="ms-2"
@@ -80,7 +82,9 @@
 
     @if (showResendVerification()) {
       <div class="flex justify-center items-center mt-2">
-        <p class="text-gray-600">{{ 'auth.verification.didntReceiveEmail' | translate }}</p>
+        <p class="text-(--p-text-tertiary)">
+          {{ 'auth.verification.didntReceiveEmail' | translate }}
+        </p>
         <p-button
           variant="text"
           class="ms-2"
