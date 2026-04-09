@@ -3,7 +3,8 @@
 @use 'primeicons/primeicons.css';
 @use 'tailwindcss';
 
-@plugin "tailwindcss-primeui";
+// @plugin "tailwindcss-primeui";
+@plugin "./design/tailwind-tokens-plugin.mjs";
 
 /* to make tailwind css work with primeui with same class for dark mode */
 /* this should be the same name provided in the primeng config ex:"app-dark" */

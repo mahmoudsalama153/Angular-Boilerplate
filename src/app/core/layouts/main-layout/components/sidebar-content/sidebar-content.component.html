@@ -3,11 +3,11 @@
   [class.sidebar-collapsed]="displayCollapsed()"
 >
   <span
-    class="absolute top-[60px] bg-(--p-bg-surface) cursor-pointer rounded-full p-2 border border-(--p-border-subtle) flex items-center justify-center h-[30px] w-[30px] transition-all duration-300 ease-in-out"
+    class="absolute top-[60px] bg-surface cursor-pointer rounded-full p-2 border border-subtle flex items-center justify-center h-[30px] w-[30px] transition-all duration-300 ease-in-out"
     [ngClass]="togglePositionClass()"
     (click)="toggleSidebarDrawerCollapsed()"
   >
-    <i [class]="sidebarToggleIcon() + ' text-(--p-text-subtle-soft)'"></i>
+    <i [class]="sidebarToggleIcon() + ' text-subtle-soft'"></i>
   </span>
   <div>
     @if (displayCollapsed()) {

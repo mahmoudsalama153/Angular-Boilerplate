@@ -2,13 +2,13 @@
   <a
     [href]="link().routerLink"
     target="_blank"
-    class="flex items-center hover:!bg-(--p-bg-secondary) text-[16px] transition-all duration-300 ease-in-out block w-full p-3 rounded-lg font-semibold p-[12px]"
+    class="group items-center hover:bg-brand-solid-hover text-[16px] transition-all duration-300 ease-in-out block w-full p-3 rounded-lg font-semibold p-[12px]"
     [class.justify-center]="collapsed()"
   >
     <i
       class="{{
         link().icon
-      }} text-(--p-text-subtle-soft) text-2xl! w-[25px] flex-shrink-0 transition-[margin] duration-300 ease-in-out"
+      }} group-[.bg-primary]:text-white text-2xl! w-[25px] shrink-0 transition-[margin] duration-300 ease-in-out"
       [class.me-[11px]]="!collapsed()"
     ></i>
     @if (!collapsed()) {
@@ -18,14 +18,14 @@
 } @else {
   <a
     [routerLink]="link().routerLink"
-    routerLinkActive="bg-primary text-white"
-    class="group flex items-center hover:!bg-(--p-bg-secondary-hover) text-[16px] transition-all duration-300 ease-in-out block w-full p-3 rounded-lg font-semibold p-[12px]"
+    routerLinkActive="bg-brand-solid text-primary-on-brand"
+    class="group items-center hover:bg-brand-solid-hover text-[16px] transition-all duration-300 ease-in-out block w-full p-3 rounded-lg font-semibold p-[12px]"
     [class.justify-center]="collapsed()"
   >
     <i
       class="{{
         link().icon
-      }} text-(--p-text-subtle-soft) group-[.bg-primary]:text-white text-2xl! w-[25px] flex-shrink-0 transition-[margin] duration-300 ease-in-out transition-colors"
+      }} group-[.bg-primary]:text-white text-2xl! w-[25px] shrink-0 transition-[margin] duration-300 ease-in-out"
       [class.me-[11px]]="!collapsed()"
     ></i>
     @if (!collapsed()) {
