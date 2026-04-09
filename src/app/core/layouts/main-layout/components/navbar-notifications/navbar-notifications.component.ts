@@ -14,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
 import { Popover, PopoverModule } from 'primeng/popover';
+import { PrimeIcons } from '@app/shared/components/prime-icons/prime-icons';
 
 @Component({
   selector: 'app-navbar-notifications',
@@ -24,6 +25,7 @@ import { Popover, PopoverModule } from 'primeng/popover';
     MenuModule,
     PopoverModule,
     NavbarNotificationsTabs,
+    PrimeIcons,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './navbar-notifications.component.html',
