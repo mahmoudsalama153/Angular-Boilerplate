@@ -15,37 +15,31 @@
         [optionLabel]="isArabic() ? 'nameAr' : 'name'"
         [disabled]="disabled() || _isDisabled"
         [filter]="true"
-        [filterPlaceholder]="'common.searchCountry' | translate"
+        [filterPlaceholder]="'Search phone'"
         [showClear]="false"
         [appendTo]="'body'"
         class="country-select"
       >
-        <ng-template
-          pTemplate="selectedItem"
-          let-country
-        >
+        <ng-template pTemplate="selectedItem" let-country>
           @if (country) {
-          <div class="country-display">
-            <img
-              [src]="country.flagUrl"
-              [alt]="isArabic() ? country.nameAr : country.name"
-              class="flag-icon"
-              onerror="this.style.display='none'"
-            />
-            <span class="dial-code text-sm font-medium ltr">{{ country.dialCode }}</span>
-          </div>
+            <div class="country-display">
+              <img
+                [src]="country.flagUrl"
+                [alt]="isArabic() ? country.nameAr : country.name"
+                class="flag-icon"
+                onerror="this.style.display = 'none'"
+              />
+              <span class="dial-code text-sm font-medium ltr">{{ country.dialCode }}</span>
+            </div>
           }
         </ng-template>
-        <ng-template
-          pTemplate="item"
-          let-country
-        >
+        <ng-template pTemplate="item" let-country>
           <div class="country-option flex items-center gap-2">
             <img
               [src]="country.flagUrl"
               [alt]="isArabic() ? country.nameAr : country.name"
               class="flag-icon"
-              onerror="this.style.display='none'"
+              onerror="this.style.display = 'none'"
             />
             <span class="country-name">{{ isArabic() ? country.nameAr : country.name }}</span>
             <span class="dial-code ml-auto text-sm font-medium ltr">{{ country.dialCode }}</span>
