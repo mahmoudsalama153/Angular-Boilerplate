@@ -1,0 +1,59 @@
+---
+alwaysApply: true
+---
+
+# Angular 21 + PrimeNG + Tailwind Project Rules
+
+## Project Stack
+- Angular 21 (Standalone Components)
+- PrimeNG 18+ (UI Components)
+- Tailwind CSS 4+ (Styling)
+- TypeScript 5.7+
+- Signals-based State Management
+
+## Core Principles
+
+### 1. Component Architecture
+- ALWAYS use standalone components (no NgModules)
+- ALWAYS use Angular Signals for reactive state
+- ALWAYS use OnPush change detection strategy
+- NEVER use zone.js-based change detection patterns
+- Use `inject()` function for dependency injection over constructor injection
+
+### 2. Angular Signals Pattern
+```typescript
+// ✅ CORRECT: Use signals for component state
+import { Component, signal, computed, effect } from '@angular/core';
+
+@Component({
+  selector: 'app-example',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ExampleComponent {
+  // Use signal() for mutable state
+  count = signal(0);
+  
+  // Use computed() for derived state
+  doubleCount = computed(() => this.count() * 2);
+  
+  // Use effect() for side effects
+  constructor() {
+    effect(() => {
+      console.log('Count changed:', this.count());
+    });
+  }
+  
+  increment() {
+    this.count.update(c => c + 1);
+  }
+}
+
+// ❌ WRONG: Don't use traditional properties
+export class WrongComponent {
+  count = 0; // Don't do this
+  
+  increment() {
+    this.count++; // Don't do this
+  }
+}
