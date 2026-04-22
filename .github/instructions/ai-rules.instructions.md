@@ -1,0 +1,172 @@
+You are working on an enterprise Angular application.
+
+You MUST strictly follow the project architecture, design system, and UI rules defined below.
+Do NOT deviate unless explicitly instructed.
+
+---
+
+## 🔷 CORE STACK RULES
+
+- Framework: Angular (latest best practices only)
+- UI Library: PrimeNG
+- Styling: TailwindCSS ONLY (no custom CSS unless absolutely necessary)
+- Icons: Use the shared Prime Icons component (do NOT use raw <i> tags or external icon libraries)
+
+---
+
+## 🔷 DESIGN SYSTEM ENFORCEMENT
+
+You MUST always use the centralized design system configurations:
+
+- PrimeNG Config:
+  src/app/core/configs/primeng-config.ts
+
+- Tailwind Tokens Plugin:
+  src/design/tailwind-tokens-plugin.mjs
+
+Rules:
+
+- Do NOT hardcode colors, spacing, or typography
+- Always use tokens/utilities defined in Tailwind plugin
+- All UI must match existing application patterns
+
+---
+
+## 🔷 COMPONENT ARCHITECTURE RULES
+
+When generating ANY of the following:
+
+- Components
+- Directives
+- Pipes
+- Services
+
+You MUST:
+
+1. Follow existing folder structure conventions
+2. Match naming conventions exactly
+3. Use standalone components (if project uses them)
+4. Keep components small and reusable
+5. Separate smart vs dumb components (if applicable)
+
+---
+
+## 🔷 UI COMPONENT RULES
+
+- ALWAYS use PrimeNG components for:
+  - Buttons
+  - Inputs
+  - Tags
+  - Tables
+  - Dialogs
+  - Dropdowns
+
+- NEVER build custom replacements if PrimeNG already provides it
+
+- Wrap reusable UI into shared components when needed
+
+---
+
+## 🔷 FORM & VALIDATION RULES
+
+- ALL form validation error messages MUST use the shared component:
+
+  src/app/shared/components/base-components/base-error-messages
+
+- DO NOT:
+  - Hardcode error messages in templates
+  - Duplicate validation UI logic
+  - Create alternative error handling components
+
+- ALWAYS reuse the BaseErrorMessages component for consistency
+
+---
+
+## 🔷 STYLING RULES
+
+- Use Tailwind classes ONLY
+
+- No inline styles
+
+- No SCSS unless already used in project convention
+
+- Follow:
+  - spacing scale
+  - color tokens
+  - typography tokens
+
+from:
+tailwind-tokens-plugin.mjs
+
+---
+
+## 🔷 ICON RULES
+
+- ALWAYS use the shared icon component from:
+  shared/components
+
+- NEVER use:
+  - direct PrimeIcons classes
+  - <i class="pi pi-...">
+  - external icon libraries
+
+---
+
+## 🔷 CODE QUALITY RULES
+
+- Follow Angular best practices:
+  - OnPush change detection (if used in project)
+  - Strong typing (no `any`)
+  - Proper RxJS usage
+  - Avoid logic in templates
+
+- Keep code clean, readable, and scalable
+
+---
+
+## 🔷 SIMPLICITY & ANTI-OVERENGINEERING RULE
+
+- DO NOT over-engineer solutions
+
+- ALWAYS:
+  - Keep implementations simple and minimal
+  - Avoid unnecessary abstractions
+  - Avoid adding extra layers, services, or utilities unless truly needed
+  - Avoid speculative features or “future-proofing” that is not required
+
+- ONLY implement what is explicitly needed
+
+---
+
+## 🔷 BEFORE GENERATING CODE
+
+You MUST:
+
+1. Check if a similar component already exists
+2. Reuse existing patterns
+3. Follow exact UI/UX patterns used in the app
+
+---
+
+## 🔷 HARD RESTRICTIONS
+
+DO NOT:
+
+- Introduce new UI libraries
+- Break design consistency
+- Ignore Tailwind tokens
+- Bypass shared components
+- Create duplicate UI patterns
+- Implement custom form error handling outside BaseErrorMessages
+- Add unnecessary complexity or unused features
+
+---
+
+## 🔷 OUTPUT EXPECTATION
+
+All generated code must:
+
+- Be production-ready
+- Match existing project conventions exactly
+- Be consistent with the design system
+- Be as simple as possible while fulfilling requirements
