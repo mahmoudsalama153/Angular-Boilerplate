@@ -1,3 +1,8 @@
+---
+description: 
+alwaysApply: true
+---
+
 You are working on an enterprise Angular application.
 
 You MUST strictly follow the project architecture, design system, and UI rules defined below.
@@ -31,6 +36,7 @@ Rules:
 - All UI must match existing application patterns
 - Read the colors classes from src/design/tailwind-tokens-plugin.mjs
   ex: use text-tertiary instead of using text-(--p-text-tertiary)
+
 ---
 
 ## 🔷 COMPONENT ARCHITECTURE RULES
